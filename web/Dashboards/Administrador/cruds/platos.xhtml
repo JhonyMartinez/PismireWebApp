@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <h:form id="file" enctype="multipart/form-data">
+             <div>
+                <p:fileUpload value="#{platoBean.file}" mode="simple" skinSimple="true"/>
+                <p:commandButton ajax="false" value="Importar Platos" action="#{platoBean.cargaPlatos()}" update="datosPlatos"/>
+            </div>
+             <br></br>
+         </h:form>
+        <h:form id="datosPlatos" enctype="multipart/form-data">
+            <p:commandButton value="Nuevo Plato" onclick="PF('dlg2').show()"/>
+            <p:dataTable value="#{platoBean.platos}" var="plat">
+                <p:column headerText="Id">
+                    <h:outputText value="#{plat.idPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Plato">
+                    <h:outputText value="#{plat.nombrePlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Descripcion">
+                    <h:outputText value="#{plat.descripcionPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Precio">
+                    <h:outputText value="#{plat.precioPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Tipo de Plato">
+                    <h:outputText value="#{plat.FK_idTipoPlato.nombreTipoPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Opciones">
+                    <p:commandButton onclick="PF('dlg1').show()" icon="pi pi-pencil" styleClass="edit-button rounded-button ui-button-success"/>
+                    <p:commandButton actionListener="#{platoBean.deletePlato(plat)}" update="datosPlatos" class="ui-button-warning rounded-button" icon="pi pi-trash">
+                        <p:confirm type="popup" header="Confirmacion" message="¿Estas seguro de eliminarlo?" icon="pi pi-exclamation-triangle"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+            <p:confirmPopup global="true">
+                <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                <p:commandButton value="Si" type="button" styleClass="ui-confirm-popup-yes" />
+            </p:confirmPopup>
+        </h:form>
+        <p:dialog id="edit" widgetVar="dlg1" showEffect="fade" resizable="false" header="Editar Plato">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="idplat" value="ID Plato"/>
+                    <p:inputText id="idplat" value="#{platoBean.platoAdd.idPlato}"/>
+                    
+                    <p:outputLabel for="nomplat" value="Nombre"/>
+                    <p:inputText id="nomplat" value="#{platoBean.platoAdd.nombrePlato}"/>
+                    
+                    <p:outputLabel for="desplat" value="Descripcion"/>
+                    <p:inputText id="desplat" value="#{platoBean.platoAdd.descripcionPlato}"/>
+                    
+                    <p:outputLabel for="preplat" value="Precio"/>
+                    <p:inputText id="preplat" value="#{platoBean.platoAdd.precioPlato}"/>
+                    
+                    <p:outputLabel for="fotplat" value="Foto"/>
+                    <p:inputText id="fotplat" value="#{platoBean.platoAdd.fotoPlato}"/>
+                    
+                    <p:outputLabel for="tipplat" value="Tipo de Plato"/>
+                    <p:inputText id="tipplat" value="#{platoBean.platoAdd.FK_idTipoPlato.nombreTipoPlato}"/>
+                    
+                    
+                    <p:commandButton value="Actualizar" actionListener="#{platoBean.updatePlato(platoAdd)}" update="datosPlatos" onclick="PF('dlg1').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlg1').hide();"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+        <p:dialog id="new" widgetVar="dlg2" showEffect="fade" resizable="false" header="Agregar Plato">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="nomplat" value="Nombre"/>
+                    <p:inputText id="nomplat" value="#{platoBean.platoAdd.nombrePlato}"/>
+                    
+                    <p:outputLabel for="desplat" value="Descripcion"/>
+                    <p:inputText id="desplat" value="#{platoBean.platoAdd.descripcionPlato}"/>
+                    
+                    <p:outputLabel for="preplat" value="Precio"/>
+                    <p:inputText id="preplat" value="#{platoBean.platoAdd.precioPlato}"/>
+                    
+                    <p:outputLabel for="fotplat" value="Foto"/>
+                    <p:inputText id="fotplat" value="#{platoBean.platoAdd.fotoPlato}"/>
+                    
+                     <p:outputLabel for="tipplat" value="Tipo de Plato"/>
+                     <p:selectOneMenu id="tipplat" value="#{platoBean.tipoPlatoAdd.idTipoPlato}">
+                        <f:selectItem itemLabel="Selecciona una:"/>
+                        <f:selectItems value="#{tipoPlatoBean.tiposPlato}" var="tipplat" itemValue="#{tipplat.idTipoPlato}" itemLabel="#{tipplat.nombreTipoPlato}"/>
+                    </p:selectOneMenu>
+                    
+                    
+                    <p:commandButton value="Agregar" actionListener="#{platoBean.addPlato()}" update="datosPlatos" onclick="PF('dlg2').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlg1').hide();"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+    </h:body>
+</html>
+

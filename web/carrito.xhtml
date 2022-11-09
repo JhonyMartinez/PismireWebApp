@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Carrito - Restaurante El Satélite</title>
+        <link rel="shorcut icon" href="resources/img/Isologo.svg"/>
+        <!-- Enlace a los estilos css -->
+        <link rel="stylesheet" href="resources/css/style_carrito.css"/>
+        <!-- Enlace a los iconos de Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- CDN para los iconos de FontAwesome -->
+        <script src="https://kit.fontawesome.com/ce42f6509a.js" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body class="body">
+        <f:event type="preRenderView" listener="#{platoBean.showCart()}" />
+        <!-- Loader -->
+    <div class="cargando">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <!-- Barra de Navegacion Superior -->
+     <nav>
+        <div class="logo">
+            <h:form>
+                <h:commandLink action="index.xhtml?faces-redirect=true">Restaurante <span>El Satélite</span></h:commandLink>
+            </h:form>
+        </div>
+        <div class="menu">
+            <h:form>
+                <div class="secciones">
+                <a id="car" onclick="window.history.back()">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </a> 
+                <c:if test="#{loginBean.validacion == false}">
+                    <h:commandLink action="Login/login.xhtml?faces-redirect=true" class="login">Ingresar</h:commandLink>
+                </c:if>
+                <c:if test="#{loginBean.validacion == true}">
+                    <h:commandLink actionListener="#{loginBean.ingresarDashboard()}" class="login">Dashboard</h:commandLink>
+                </c:if>
+            </div>
+            </h:form>
+        </div>
+     </nav>
+     <main>
+        <p:fragment>
+        <p:autoUpdate/>
+        <p:growl id="msj" showDetail="true" showSummary="true"/>
+        <div class="carrito">
+            <div class="carrito-p1">
+                <div class="carrito-header">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <h1>CARRITO DE COMPRAS</h1>
+                </div>
+                <div class="productos">
+                    <p:repeat value="#{platoBean.platosCarrito}" var="plato">
+                        <article class="producto">
+                        <div class="plato">
+                            <img src="resources/img/plato1.jpg" alt=""/>
+                            <div class="texto">
+                                <h3>#{plato.nombrePlato}</h3>
+                                <a href="#">Ver Descripcion</a>
+                            </div>
+                        </div>
+                        <div class="cantidad">
+                            <div class="numeros">
+                                <h:form id="carrito">
+                                    <p:commandLink actionListener="#{platoBean.removeQuantity(plato.idPlato)}"><span class="material-symbols-outlined menos">remove</span></p:commandLink>
+                                    <p:commandLink actionListener="#{platoBean.addQuantity(plato.idPlato)}"><span class="material-symbols-outlined mas">add</span></p:commandLink>
+                                </h:form>
+                            <div class="caja-numero">
+                                <input type="number" min="1" max="50" disabled="true" value="#{plato.cantidad}"/>
+                            </div>
+                            </div> 
+                        </div>
+                        <div class="precio">
+                            <h4>#{plato.subTotal}</h4>
+                        </div>
+                        <div class="delete">
+                            <h:form>
+                                <p:commandLink actionListener="#{platoBean.removeToCart(plato.idPlato)}" update="msj">
+                                <span class="material-symbols-outlined">delete</span>
+                                </p:commandLink>
+                            </h:form>
+                        </div>
+                    </article>
+                    </p:repeat>
+                </div>
+            </div>
+            <div class="carrito-p2">
+                <h:form>
+                <div class="info-compra">
+                    <div class="resumen">
+                        <h2>Resumen de Orden</h2>
+                    </div>
+                    <div class="cantidad-total">
+                        <h3>Productos:</h3>
+                        <h4>#{platoBean.producto}</h4>
+                    </div>
+                    <div class="total">
+                        <h3>Total a Pagar:</h3>
+                        <h4>$#{platoBean.total}</h4>
+                    </div>
+                        <p:commandLink actionListener="#{platoBean.validateCart()}">Continuar</p:commandLink>
+                </div>
+                </h:form>
+            </div>
+        </div>
+        </p:fragment>
+     </main>
+     <footer>
+        <p>Pismire © 2022 - Todos los Derechos Reservados</p>
+     </footer>
+
+    <!-- Enlace al Javascript -->
+    <script src="resources/script/script_categorias.js"></script>
+    </h:body>
+</html>
+

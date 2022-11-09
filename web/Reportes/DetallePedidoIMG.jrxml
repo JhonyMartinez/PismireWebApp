@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetallePedido" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="b11d03d3-5632-4572-8b35-8fa3b3dd2b4f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PismireReports"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#EEEEEE">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#DBA240" fill="Solid">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF" pattern="">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="edd9585f-304c-4e8d-b190-836793e293fa">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PismireReports"/>
+		<parameter name="net.sf.jasperreports.csv.source" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_INPUT_STREAM" class="java.io.InputStream" isForPrompting="false"/>
+		<parameter name="CSV_URL" class="java.net.URL" isForPrompting="false"/>
+		<parameter name="CSV_FILE" class="java.io.File" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.encoding" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_READER" class="java.io.Reader" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.column.names" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_COLUMN_NAMES_ARRAY" class="java.lang.String[]" isForPrompting="false"/>
+		<parameter name="CSV_DATE_FORMAT" class="java.text.DateFormat" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.date.pattern" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.field.delimiter" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_NUMBER_FORMAT" class="java.text.NumberFormat" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.number.pattern" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.record.delimiter" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_USE_FIRST_ROW_AS_HEADER" class="java.lang.Boolean" isForPrompting="false"/>
+		<parameter name="CSV_LOCALE" class="java.util.Locale" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.locale.code" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_TIMEZONE" class="java.util.TimeZone" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.timezone.id" class="java.lang.String" isForPrompting="false"/>
+		<queryString>
+			<![CDATA[SELECT tp.nomPersona, tp.apePersona, tp.telPersona, tu.emaUsuario, td.dirPedido, tdv.pk_idDetalle, tv.pk_idventa, tpl.pk_idplato, tpl.nomPlato, tpl.prePlato, tdv.canPlato, tdv.totPlato, tmp.metodoPago,
+tep.estadoPedido, tv.valVenta FROM tbl_personas tp INNER JOIN tbl_usuarios tu on tp.fk_idusuario = tu.pk_idusuario INNER JOIN tbl_ventas tv on tp.pk_idpersona = tv.fk_idpersona INNER JOIN
+tbl_domicilios td on tv.pk_idventa = td.fk_idventa INNER JOIN tbl_detalleventas tdv on tv.pk_idventa = tdv.fk_idventa INNER JOIN
+tbl_platos tpl on tdv.fk_idplato = tpl.pk_idplato INNER JOIN tbl_metodosPago tmp on tv.fk_idmpago = tmp.pk_idmpago INNER JOIN tbl_estadospedido tep on td.fk_idestadopedido = tep.pk_idestadopedido WHERE tv.pk_idventa = (SELECT FN_LastIdSale())]]>
+		</queryString>
+		<field name="nomPersona" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nomPersona"/>
+			<property name="com.jaspersoft.studio.field.label" value="nomPersona"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_personas"/>
+		</field>
+		<field name="apePersona" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="apePersona"/>
+			<property name="com.jaspersoft.studio.field.label" value="apePersona"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_personas"/>
+		</field>
+		<field name="telPersona" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="telPersona"/>
+			<property name="com.jaspersoft.studio.field.label" value="telPersona"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_personas"/>
+		</field>
+		<field name="emaUsuario" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="emaUsuario"/>
+			<property name="com.jaspersoft.studio.field.label" value="emaUsuario"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_usuarios"/>
+		</field>
+		<field name="dirPedido" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="dirPedido"/>
+			<property name="com.jaspersoft.studio.field.label" value="dirPedido"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_domicilios"/>
+		</field>
+		<field name="pk_idDetalle" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="PK_idDetalle"/>
+			<property name="com.jaspersoft.studio.field.label" value="pk_idDetalle"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_detalleventas"/>
+		</field>
+		<field name="pk_idventa" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="PK_idVenta"/>
+			<property name="com.jaspersoft.studio.field.label" value="pk_idventa"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_ventas"/>
+		</field>
+		<field name="pk_idplato" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="PK_idPlato"/>
+			<property name="com.jaspersoft.studio.field.label" value="pk_idplato"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_platos"/>
+		</field>
+		<field name="nomPlato" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="nomPlato"/>
+			<property name="com.jaspersoft.studio.field.label" value="nomPlato"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_platos"/>
+		</field>
+		<field name="prePlato" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="prePlato"/>
+			<property name="com.jaspersoft.studio.field.label" value="prePlato"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_platos"/>
+		</field>
+		<field name="canPlato" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="canPlato"/>
+			<property name="com.jaspersoft.studio.field.label" value="canPlato"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_detalleventas"/>
+		</field>
+		<field name="totPlato" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="totPlato"/>
+			<property name="com.jaspersoft.studio.field.label" value="totPlato"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_detalleventas"/>
+		</field>
+		<field name="metodoPago" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="metodoPago"/>
+			<property name="com.jaspersoft.studio.field.label" value="metodoPago"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_metodospago"/>
+		</field>
+		<field name="estadoPedido" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="estadoPedido"/>
+			<property name="com.jaspersoft.studio.field.label" value="estadoPedido"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_estadospedido"/>
+		</field>
+		<field name="valVenta" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="valVenta"/>
+			<property name="com.jaspersoft.studio.field.label" value="valVenta"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="tbl_ventas"/>
+		</field>
+	</subDataset>
+	<parameter name="net.sf.jasperreports.csv.source" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_INPUT_STREAM" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="CSV_URL" class="java.net.URL" isForPrompting="false"/>
+	<parameter name="CSV_FILE" class="java.io.File" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.encoding" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_READER" class="java.io.Reader" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.column.names" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_COLUMN_NAMES_ARRAY" class="java.lang.String[]" isForPrompting="false"/>
+	<parameter name="CSV_DATE_FORMAT" class="java.text.DateFormat" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.date.pattern" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.field.delimiter" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_NUMBER_FORMAT" class="java.text.NumberFormat" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.number.pattern" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.record.delimiter" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_USE_FIRST_ROW_AS_HEADER" class="java.lang.Boolean" isForPrompting="false"/>
+	<parameter name="CSV_LOCALE" class="java.util.Locale" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.locale.code" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_TIMEZONE" class="java.util.TimeZone" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.timezone.id" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="LogoSistema" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tp.nomPersona, tp.apePersona, tp.telPersona, tu.emaUsuario, td.dirPedido, tdv.pk_idDetalle, tv.pk_idventa, tpl.pk_idplato, tpl.nomPlato, tpl.prePlato, tdv.canPlato, tdv.totPlato, tmp.metodoPago,
+tep.estadoPedido, tv.valVenta FROM tbl_personas tp INNER JOIN tbl_usuarios tu on tp.fk_idusuario = tu.pk_idusuario INNER JOIN tbl_ventas tv on tp.pk_idpersona = tv.fk_idpersona INNER JOIN
+tbl_domicilios td on tv.pk_idventa = td.fk_idventa INNER JOIN tbl_detalleventas tdv on tv.pk_idventa = tdv.fk_idventa INNER JOIN
+tbl_platos tpl on tdv.fk_idplato = tpl.pk_idplato INNER JOIN tbl_metodosPago tmp on tv.fk_idmpago = tmp.pk_idmpago INNER JOIN tbl_estadospedido tep on td.fk_idestadopedido = tep.pk_idestadopedido WHERE tv.pk_idventa = (SELECT FN_LastIdSale())]]>
+	</queryString>
+	<field name="nomPersona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomPersona"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomPersona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_personas"/>
+	</field>
+	<field name="apePersona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apePersona"/>
+		<property name="com.jaspersoft.studio.field.label" value="apePersona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_personas"/>
+	</field>
+	<field name="telPersona" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="telPersona"/>
+		<property name="com.jaspersoft.studio.field.label" value="telPersona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_personas"/>
+	</field>
+	<field name="emaUsuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="emaUsuario"/>
+		<property name="com.jaspersoft.studio.field.label" value="emaUsuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_usuarios"/>
+	</field>
+	<field name="dirPedido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dirPedido"/>
+		<property name="com.jaspersoft.studio.field.label" value="dirPedido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_domicilios"/>
+	</field>
+	<field name="pk_idDetalle" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="PK_idDetalle"/>
+		<property name="com.jaspersoft.studio.field.label" value="pk_idDetalle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_detalleventas"/>
+	</field>
+	<field name="pk_idventa" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="PK_idVenta"/>
+		<property name="com.jaspersoft.studio.field.label" value="pk_idventa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_ventas"/>
+	</field>
+	<field name="pk_idplato" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="PK_idPlato"/>
+		<property name="com.jaspersoft.studio.field.label" value="pk_idplato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_platos"/>
+	</field>
+	<field name="nomPlato" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomPlato"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomPlato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_platos"/>
+	</field>
+	<field name="prePlato" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="prePlato"/>
+		<property name="com.jaspersoft.studio.field.label" value="prePlato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_platos"/>
+	</field>
+	<field name="canPlato" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="canPlato"/>
+		<property name="com.jaspersoft.studio.field.label" value="canPlato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_detalleventas"/>
+	</field>
+	<field name="totPlato" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="totPlato"/>
+		<property name="com.jaspersoft.studio.field.label" value="totPlato"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_detalleventas"/>
+	</field>
+	<field name="metodoPago" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="metodoPago"/>
+		<property name="com.jaspersoft.studio.field.label" value="metodoPago"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_metodospago"/>
+	</field>
+	<field name="estadoPedido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="estadoPedido"/>
+		<property name="com.jaspersoft.studio.field.label" value="estadoPedido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_estadospedido"/>
+	</field>
+	<field name="valVenta" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="valVenta"/>
+		<property name="com.jaspersoft.studio.field.label" value="valVenta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_ventas"/>
+	</field>
+	<title>
+		<band height="110" splitType="Stretch">
+			<ellipse>
+				<reportElement x="-248" y="-151" width="640" height="260" forecolor="#DBA240" backcolor="#DBA240" uuid="710a1e24-e265-4c52-89a6-3d179bcfdaf9"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="-260" y="-150" width="640" height="260" forecolor="#EEEEEE" backcolor="#EEEEEE" uuid="9ef0bc21-c1cf-4828-8089-ecf906b34b50"/>
+			</ellipse>
+			<image onErrorType="Blank">
+				<reportElement x="17" y="10" width="180" height="60" uuid="8fc2f250-6ea3-4aba-9858-8701c479aeb9"/>
+				<imageExpression><![CDATA[$P{LogoSistema}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="83" y="47" width="126" height="30" uuid="26e33d56-626d-4162-b1a6-706540331ed4"/>
+				<textElement textAlignment="Left">
+					<font fontName="Maven Pro" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DETALLE DE PEDIDO]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="403" y="41" width="140" height="13" uuid="d58e2a7d-db0e-41e9-9476-6636c97af7c9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="403" y="54" width="140" height="17" uuid="56cd26bf-1ec3-46ce-b8b2-7264ca1d2fe0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="395" y="24" width="85" height="26" forecolor="#030200" uuid="fc1c4e28-293e-4deb-9a5c-d21f588e2f79"/>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="Dancing" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Restaurante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="24" width="70" height="26" forecolor="#DBA240" uuid="7c43dccb-40c0-4d2d-9c6b-f9e345c62f7b"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="Dancing" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[El Satélite]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="211" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="24" width="100" height="30" forecolor="#DBA240" backcolor="#DBA240" uuid="e0c465d7-c9cc-4efd-aa0d-5ca05e9ab8be"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="22" y="37" width="238" height="30" uuid="59b007db-904d-42f3-a03a-5d2d3baf527a"/>
+				<textElement>
+					<font fontName="Inconsolata" size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomPersona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="22" y="54" width="238" height="30" uuid="0f0d2e94-daf1-40f2-9f04-c1297a080a35"/>
+				<textElement>
+					<font fontName="Inconsolata" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apePersona}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="60" width="115" height="30" forecolor="#DBA240" backcolor="#DBA240" uuid="b6ea565f-e1a3-4357-b48e-9b22560545df"/>
+				<textElement textAlignment="Left">
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="86" width="115" height="14" uuid="10e97621-3201-4fdb-81bb-62e896c69370"/>
+				<textElement textAlignment="Left">
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{metodoPago}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="394" y="72" width="155" height="16" uuid="92408bb2-0686-462a-93e2-20070a0fe7a3"/>
+				<textElement textAlignment="Left">
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dirPedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="75" width="181" height="15" uuid="9f7548db-a572-4ea8-ad21-9f084d0635a2"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telPersona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="88" width="194" height="14" uuid="1b5780de-7ad3-40fc-b65c-d1f37ae8d14d"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{emaUsuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="75" width="100" height="15" uuid="c4c17b50-40d1-456e-9de8-a2c6e935b167"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="88" width="100" height="15" uuid="c2056142-30bf-418c-8bbc-b13ad3484e85"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="72" width="82" height="15" uuid="ea651a1d-ff6f-4db2-b1a7-b1c1ccf7fe4c"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="86" width="151" height="15" uuid="aac00b50-e324-4006-8d14-cb13e62450f5"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Metodo de Pago:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="19" y="121" width="530" height="75" uuid="a49b3192-7c70-4013-a6d5-5d5edf1a4290">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="2dd49ce9-d6ad-478b-8fd0-65de71a39a1a">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="50" uuid="021a17f9-8cdd-4591-b94d-f92a363f0cc1">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30" uuid="f00da55d-853a-447b-aada-e34231c632b2">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[No.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="50" height="30" uuid="2edce55f-66b9-466e-b94d-9168d0a835de"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="180" uuid="29c5a298-734d-4fb8-bacd-3d4483fa7968">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="180" height="30" uuid="bb5adfb1-5851-474b-8cfe-a4b6f3513f93"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[PLATO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="180" height="30" uuid="7d465897-9b97-4dfc-962c-495214e68792"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nomPlato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="5bbd3a7a-a244-4ad1-88ab-067f6a46ccba">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="0116b946-cc01-4726-ab29-80ca42c91e92"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[PRECIO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="110" height="30" uuid="e2e9ecd7-d34c-4453-9ec4-78d683e8d233"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{prePlato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="e8dcb66d-86de-46d3-91a4-c9500674f047">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="1.0" lineStyle="Dotted"/>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="31ed3e8d-367f-4bf6-9a81-6b4715dd6b76"/>
+								<box>
+									<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CANTIDAD]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="1397b5df-7715-4b88-ab83-95f7f67d1570"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{canPlato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="89d1524f-0ad7-477d-a8fe-25c845344a15">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="1d9f7491-05cd-47a3-af5d-cfc7dbd599cc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<box>
+								<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="110" height="30" uuid="ba9c73ff-cd18-4fe9-b3a9-8c1b07ade66b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Inconsolata" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{totPlato}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="38" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="408" y="40" width="137" height="25" forecolor="#DBA240" backcolor="#DBA240" uuid="5a972960-c424-4ca6-ac6f-c6dfefddd311">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="450" y="47" width="88" height="15" uuid="9c9b4f58-fd0f-4415-8d8d-4be0e11af3c7"/>
+				<textElement textAlignment="Right">
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valVenta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="415" y="47" width="40" height="15" uuid="00b3cb42-19e4-4acd-a51f-50201f6f06db"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="42" width="204" height="24" uuid="c0e29023-c9ae-4004-963d-977c19d6a966"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Inconsolata" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[¡GRACIAS POR TU COMPRA!]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement x="-22" y="14" width="601" height="40" forecolor="#EEEEEE" backcolor="#EEEEEE" uuid="b9625bd0-230e-46fb-8eef-d640e12f7f20">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineColor="#EEEEEE"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-21" y="30" width="601" height="40" forecolor="#DBA240" backcolor="#DBA240" uuid="c2d5f892-43a0-4004-8883-781d462fe9b4">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="120" y="44" width="318" height="19" uuid="7286b2d1-34da-4228-a9f1-f69081342100"/>
+				<textElement textAlignment="Center">
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<text><![CDATA[Pismire ©      - Todos los Derechos Reservados]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement x="201" y="44" width="130" height="19" uuid="8db22085-7662-48da-a248-e5dffb31a001"/>
+				<textElement>
+					<font fontName="Inconsolata" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

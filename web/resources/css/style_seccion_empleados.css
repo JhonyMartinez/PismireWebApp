@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inconsolata&family=Maven+Pro&family=Russo+One&display=swap');
+/* 
+font-family: 'Inconsolata', monospace;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Russo One', sans-serif;
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Maven Pro', sans-serif;
+    color: #16161a;
+    font-weight: normal;
+}
+main{
+    padding: 20px 40px;
+}
+.empleados .header{
+    padding: 13px 0px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.empleados .header h1{
+    font-weight: normal;
+    font-size: 26px;
+    font-family: 'Russo One', sans-serif;
+}
+.empleados .header h4{
+    font-weight: bold;
+}
+.empleados .header .boton-new{
+    text-decoration: none;
+    background-color: #dba240;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.empleados .header .boton-new:hover{
+    color: black;
+    background: #d3a961;
+}
+.info{
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+.total-empleados{
+    background: #dba240;
+    height: 140px;
+    width: 140px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+}
+.total-empleados h2{
+    font-size: 18px;
+    font-weight: bold;
+}
+.total-empleados h3{
+    font-size: 3.5rem;
+}
+.nuevos-empleados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+.nuevos-empleados img{
+    width: 180px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.nuevos-header{
+    text-align: right;
+    width: 100%;
+    padding-right: 10px;
+}
+.nuevos-header h2{
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.nuevos-header h4{
+    font-weight: bold;
+    font-size: 16px;
+}
+.nuevos{
+    display: flex;
+    gap: 20px;
+}
+.nuevo{
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(136, 136, 136, 0.589);
+    border-radius: 15px;
+}
+.nuevo .nombre{
+    position: absolute;
+    bottom: 0;
+    background: #f3e4ca;
+    width: 100%;
+    border-radius: 0px 0px 15px 15px;
+    text-align: center;
+    padding: 5px;
+}
+.tabla{
+    margin-top: 40px
+}
+
+/* Modal Nuevo Empleado */
+.info-nuevo-emp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+.info-personal, .info-empresarial {
+    padding: 20px;
+}
+
+.info-personal h3, .info-empresarial h3 {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dba240;
+    width: fit-content;
+}
+.grupo_campos {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.campo {
+    text-align: left;
+    gap: 10px;
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.campo input {
+    background: none;
+    padding: 0px 10px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    font-size: 16px;
+}
+
+.campo input:focus, textarea:focus {
+    transition: all 0.3s ease;
+    border: 1px solid #d3a961;
+}
+textarea{
+    resize: none;
+    outline: none;
+    padding: 10px;
+    height: 128px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    font-size: 16px;
+}
+.botones{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.boton {
+    width: 30%;
+    border: none;
+    background: #dba240;
+    padding: 15px 35px;
+    color: #16161a;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.boton.cancel{
+    background: white;
+    border: 1px solid #dba240;
+}
+
+.boton:hover {
+    background: #d3a961;
+}
+
+/*PrimeFaces Table Styles */
+
+body .ui-datatable thead th{
+    background: #f3e4ca;
+    padding: 10px 20px;
+    border: none;
+}
+.ui-datatable-tablewrapper{
+    border-left: 1px solid #f3e4ca;
+    border-right: 1px solid #f3e4ca;
+}
+body .ui-datatable .ui-paginator{
+    padding: 0.5rem;
+}
+body .ui-paginator{
+    background: #f3e4ca;
+    border: none;
+}
+body .ui-datatable .ui-paginator.ui-paginator-bottom{
+    border-radius: 0px 0px 10px 10px;
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active{
+    background: white;
+}
+body .ui-paginator .ui-paginator-current{
+    color: black;
+}
+body .ui-paginator .ui-paginator-first, body .ui-paginator .ui-paginator-prev, body .ui-paginator .ui-paginator-next, body .ui-paginator .ui-paginator-last{
+    color:black;
+}
+.header-tabla{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+.globalFiltro{
+    width: 100%;
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page{
+    color: black;
+}
+
+ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield{
+    width: 60%;
+    border-radius: 15px;
+    border: none;
+    text-align: left;
+}
+
+body .ui-datatable .ui-datatable-header{
+    border-radius: 10px 10px 0px 0px;
+    background: #f3e4ca;
+    border: none;
+    padding-bottom: 10px;
+}
+body .ui-datatable .ui-datatable-data > tr > td{
+    border-top: 1px solid #f3e4ca;
+    border-bottom: 1px solid #f3e4ca;
+}
+.tabla thead {
+   border: 1px solid #f3e4ca;
+}
+body .ui-inputfield.ui-state-focus{
+    border-color: #e0c89d;
+    box-shadow: 0 0 0 0.2em #e0c89d;
+}
+body .ui-datatable .ui-datatable-data tr.ui-state-hover{
+    background: #f3e4ca;
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-focus{
+    border-color: #e0c89d;
+    box-shadow: 0 0 0 0.1em #e0c89d;
+}
+body .ui-datatable .ui-datatable-data > tr.ui-state-highlight{
+    background: #f3e4ca;
+    color: black;
+}
+
+/*Prime Faces - Nuevo*/
+body .ui-commandlink, body .ui-link{
+    color: black;
+}
+
+.new-employee ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    text-align: left;
+    border-radius: 5px;
+}
+
+body .new-employee .ui-inputfield.ui-state-focus{
+    border-color: #dba240;
+    box-shadow: none;
+}
+
+body .new-employee .ui-inputfield.ui-state-hover{
+    border-color: #dba240;
+}
+
+.new-employee thead{
+    border: none;
+}
+
+body .ui-widget-overlay{
+    background: #ffffffc5;
+}
+
+/*PrimeFaces Button*/
+button.ui-button {
+    border: none;
+    background: #dba240;
+    padding: 15px 35px;
+    color: #16161a;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+body .ui-button.ui-button-text-only .ui-button-text{
+    padding: 0px;
+}
+.ui-button-text-only .ui-button-text {
+    padding: 0px;
+    font-weight: bold;
+}
+body .ui-button.ui-state-hover{
+    background: #d3a961;
+    border-color: #d3a961;
+    color: black;
+}
+body .ui-button.ui-state-focus{
+    border-color: #dba240;
+    box-shadow: none;
+}
+body .ui-button.ui-state-active{
+    background:#d3a961;
+}
+

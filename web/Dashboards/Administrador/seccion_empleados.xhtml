@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Empleados</title>
+        <link rel="stylesheet" href="../../resources/css/style_seccion_empleados.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </h:head>
+    <h:body>
+        <main>
+            <p:growl id="msj" showDetail="true" showSummary="true"/>
+            <div class="empleados">
+                <div class="header">
+                    <div class="titulos">
+                        <h1>Empleados</h1>
+                        <h4>En este lugar se encuentran todos tus empleados registrados</h4>
+                    </div>
+                    <h:form>
+                        <div class="editar">
+                            <p:commandLink class="boton-new" onclick="PF('new').show()"><span class="material-symbols-outlined">edit</span>Nuevo Empleado</p:commandLink>
+                        </div>
+                    </h:form>
+                </div>
+                <div class="info">
+                    <div class="total-empleados">
+                        <h2>Numero de Empleados</h2>
+                        <h3>#{empleadoBean.totalEmpleados}</h3>
+                    </div>
+                    <div class="nuevos-empleados">
+                        <div class="nuevos-header">
+                            <h2>Nuevos Empleados</h2>
+                            <h4>Estos son los 3 empleados mas recientes en ingresar a tu empresa</h4>
+                        </div>
+                        <div class="nuevos">
+                            <p:repeat value="#{empleadoBean.nuevosEmpleados}" var="newEmp">
+                            <div class="nuevo">
+                                <img src="../../../resources/img/Foto2.jpg" alt="#"/>
+                                <div class="nombre">
+                                    <h3>#{newEmp.FK_idPersona.nombrePersona}</h3>
+                                </div>
+                            </div>
+                            </p:repeat>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabla">
+                    <h:form id="datosEmpleados">
+                        <p:dataTable widgetVar="customersTable" value="#{empleadoBean.empleados}" var="emp" rows="5" paginator="true" paginatorPosition="bottom"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                     rowsPerPageTemplate="5,10,{ShowAll|'All'}" rowHover="true" selectionMode="single" selection="#{empleadoBean.empleadoSeleccionado}" rowKey="#{emp.idEmpleado}" globalFilter="#{emp.FK_idPersona.nombrePersona}">
+                            <p:ajax event="rowSelect" listener="#{empleadoBean.showProfileByEmployee()}" update="msj"/>
+                            <f:facet name="header">
+                                <div class="header-tabla">
+                                    <div class="globalFiltro">
+                                        <p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" placeholder="Buscar Empleado:"/>
+                                    </div>
+                                </div>
+                            </f:facet>
+                            <p:column headerText="Nombre" filterBy="#{emp.FK_idPersona.nombrePersona}" filterStyle="display: none">
+                                <h:outputText value="#{emp.FK_idPersona.nombrePersona}"></h:outputText>
+                            </p:column>
+                            <p:column headerText="Apellido" filterBy="#{emp.FK_idPersona.apellidoPersona}" filterStyle="display: none">
+                                <h:outputText value="#{emp.FK_idPersona.apellidoPersona}"></h:outputText>
+                            </p:column>
+                            <p:column headerText="Cargo">
+                                <h:outputText value="#{emp.cargoEmpleado}"></h:outputText>
+                            </p:column>
+                            <p:column headerText="Estado">
+                                <h:outputText value="En Turno"></h:outputText>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+            <p:dialog widgetVar="new" showEffect="fade" hideEffect="fade" draggable="none" resizable="none" modal="true" header="Nuevo Empleado">
+                <div class="new-employee">
+                    <h:form class="formulario">
+                        <div class="info-nuevo-emp">
+                            <div class="info-personal">
+                                <h3>Informacion Personal</h3>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="nom">Nombre(s)</label>
+                                        <p:inputText id="nom" value="#{empleadoBean.persona.nombrePersona}" required="true" requiredMessage="Debe especificar un Nombre"/>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="ape">Apellido(s)</label>
+                                        <p:inputText id="ape" value="#{empleadoBean.persona.apellidoPersona}" required="true" requiredMessage="Debe especificar un Apellido"/>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="doc">Documento</label>
+                                    <p:inputNumber id="doc" value="#{empleadoBean.persona.cedulaPersona}" decimalPlaces="0" emptyValue="null" required="true" requiredMessage="Debe especificar un Documento de Identificacion"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="tel">Telefono</label>
+                                        <p:inputNumber id="tel" value="#{empleadoBean.persona.telefonoPersona}" decimalPlaces="0" emptyValue="null" required="true" requiredMessage="Debe especificar un Telefono"/>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="nac">Fecha Nacimiento</label>
+                                        <p:datePicker id="nac" value="#{empleadoBean.persona.fechaNacimiento}" pattern="yyyy/MM/dd" monthNavigator="true" yearNavigator="true" required="true" requiredMessage="Debe especificar una Fecha de Nacimiento">
+                                            <f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/>
+                                        </p:datePicker>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="dir">Direccion</label>
+                                    <p:inputText id="dir" value="#{empleadoBean.persona.direccionPersona}" required="true" requiredMessage="Debe especificar una Direccion"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="ema">Correo Electronico</label>
+                                        <p:inputText id="ema" value="#{empleadoBean.usuario.emailUsuario}" required="true" requiredMessage="Debe especificar un Correo Electronico"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-empresarial">
+                                <h3>Informacion Empresarial</h3>
+                                <div class="campo">
+                                    <label for="per">Perfil Profesional</label>
+                                    <p:inputTextarea id="per" value="#{empleadoBean.empleado.perfilEmpleado}" required="true" requiredMessage="Debe especificar un Perfil Profesional"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="fecin">Fecha Ingreso</label>
+                                        <p:datePicker id="fecin" value="#{empleadoBean.empleado.ingresoEmpleado}" pattern="yyyy/MM/dd" monthNavigator="true" yearNavigator="true" required="true" requiredMessage="Debe especificar una Fecha de Ingreso">
+                                            <f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/>
+                                        </p:datePicker>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="carg">Cargo</label>
+                                        <p:inputText id="carg" value="#{empleadoBean.empleado.cargoEmpleado}" required="true" requiredMessage="Debe especificar un Cargo"/>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="sal">Salario</label>
+                                    <p:inputNumber id="sal" value="#{empleadoBean.empleado.salarioEmpleado}" decimalPlaces="0" emptyValue="null" required="true" requiredMessage="Debe especificar un Salario"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="hv">Hoja de Vida</label>
+                                        <p:inputText id="hv" value="#{empleadoBean.empleado.hvEmpleado}"/>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="con">Contrato</label>
+                                        <p:inputText id="con" value="#{empleadoBean.empleado.contratoEmpleado}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botones">
+                            <p:commandButton value="Cancelar" onclick="PF('new').hide();" class="boton cancel"/>
+                            <p:commandButton value="Agregar" actionListener="#{empleadoBean.addEmpleado()}" onclick="PF('new').hide();"  update="msj" class="boton"/>
+                        </div>
+                    </h:form>
+                </div>
+            </p:dialog>
+        </main>
+    </h:body>
+</html>
+

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Registrarse - Pismire</title>
+        <link rel="shorcut icon" href="../resources/img/Isologo.svg"/>
+        <link rel="stylesheet" href="../resources/css/style_registro.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- CDN para los iconos de FontAwesome -->
+        <script src="https://kit.fontawesome.com/ce42f6509a.js" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body>
+        <f:event listener="#{usuarioBean.clean()}" type="preRenderView"/>
+        <!-- Loader -->
+    <div class="cargando">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <!-- Barra de Navegacion Superior -->
+     <nav>
+        <div class="logo">
+            <h:form>
+                <h:commandLink action="/index.xhtml?faces-redirect=true"><img src="../resources/img/LogoPNG.png" alt=""/></h:commandLink>
+            </h:form>
+        </div>
+        <div class="menu">
+            <div class="secciones">
+                <p>¿Ya tienes una cuenta?</p>
+                <h:form>
+                    <h:commandLink action="login.xhtml?faces-redirect=true">Inicia Sesion</h:commandLink>
+                </h:form>
+            </div>
+        </div>
+     </nav>
+    <main>
+        <p:fragment id="prueba">
+        <p:autoUpdate/>
+        <p:growl id="msj" showDetail="true" showSummary="true"/>
+        <div class="registro">
+            <h:form class="formulario">
+            <p>¡Nos alegrara tenerte!</p>
+            <h2>Nuevo Registro</h2>
+                <div class="campo">
+                    <label for="correo">Correo Electronico</label>
+                    <h:inputText id="correo" value="#{usuarioBean.usuario.emailUsuario}" required="true" requiredMessage="No ha especificado ningun Correo"/>
+                </div>
+                <div class="campo">
+                <label for="contra">Contraseña</label>
+                <h:inputSecret id="contra" value="#{usuarioBean.usuario.passwordUsuario}" required="true" requiredMessage="No ha especificado ninguna Contraseña"/>
+                </div>
+                <div class="campo">
+                    <label for="contra-c">Confirmar Contraseña</label>
+                    <h:inputSecret id="contra-c" value="#{usuarioBean.passwordConfirm}" required="true" requiredMessage="Debe confirmar su Contraseña"/>
+                </div>
+                <div class="campo-check">
+                    <div class="input-check">
+                        <h:selectBooleanCheckbox id="check" value="#{usuarioBean.checkConfirm}"/>
+                    </div>
+                    <label for="check">Acepto el tratamiento de mis datos segun la <a href="#" id="pol_priv">politica de privacidad.</a></label>
+                </div>
+            <p:commandButton actionListener="#{usuarioBean.receiveData()}" value="Continuar" class="boton" update="msj"/>
+            </h:form>
+        </div>
+        </p:fragment>
+    </main>
+    <script src="../resources/script/script_login.js"></script>
+    </h:body>
+</html>
+

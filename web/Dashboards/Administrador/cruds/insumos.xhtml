@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="datosInsumos">
+            <p:commandButton value="Nuevo Insumo" onclick="PF('dlg2').show()"/>
+            <p:dataTable value="#{insumoBean.insumos}" var="ins">
+                <p:column headerText="Id">
+                    <h:outputText value="#{ins.idInsumo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Insumo">
+                    <h:outputText value="#{ins.nombreInsumo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Descripcion">
+                    <h:outputText value="#{ins.descripcionInsumo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Precio">
+                    <h:outputText value="#{ins.precioInsumo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Fecha Registro">
+                    <h:outputText value="#{ins.fechaRegistro}"></h:outputText>
+                </p:column>
+                <p:column headerText="Stock">
+                    <h:outputText value="#{ins.cantidadDisponible}"></h:outputText>
+                </p:column>
+                <p:column headerText="Categoria">
+                    <h:outputText value="#{ins.FK_idCategoria.nombreCategoria}"></h:outputText>
+                </p:column>
+                <p:column headerText="Opciones">
+                    <p:commandButton actionListener="#{insumoBean.loadDataInsumo(ins)}" onclick="PF('dlg1').show()" icon="pi pi-pencil" styleClass="edit-button rounded-button ui-button-success"/>
+                    <p:commandButton actionListener="#{insumoBean.deleteInsumo(ins)}" update="datosInsumos" class="ui-button-warning rounded-button" icon="pi pi-trash">
+                        <p:confirm type="popup" header="Confirmacion" message="¿Estas seguro de eliminarlo?" icon="pi pi-exclamation-triangle"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+            <p:confirmPopup global="true">
+                <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                <p:commandButton value="Si" type="button" styleClass="ui-confirm-popup-yes" />
+            </p:confirmPopup>
+        </h:form>
+        
+        <p:dialog widgetVar="dlg1" showEffect="fade" resizable="false" header="Editar Insumo">
+            <h:form id="edit">
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="nomins" value="Insumo"/>
+                    <p:inputText id="nomins" value="#{insumoBean.insumo.nombreInsumo}"/>
+                    
+                    <p:outputLabel for="desins" value="Descripcion"/>
+                    <p:inputText id="desins" value="#{insumoBean.insumo.descripcionInsumo}"/>
+                    
+                    <p:outputLabel for="fecrins" value="Fecha de Registro"/>
+                    <p:datePicker id="fecrins" value="#{insumoBean.insumo.fechaRegistro}" pattern="MM/dd/yyyy">
+                        <f:convertDateTime pattern="MM/dd/yyy" type="localDate"/>
+                    </p:datePicker>
+                    <p:outputLabel for="preins" value="Precio Insumo"/>
+                    <p:inputText id="preins" value="#{insumoBean.insumo.precioInsumo}"/>
+                    
+                    <p:outputLabel for="canins" value="Stock"/>
+                    <p:inputText id="canins" value="#{insumoBean.insumo.cantidadDisponible}"/>
+                    
+                    <p:outputLabel for="catins" value="Categoria"/>
+                    <p:selectOneMenu id="catins" value="#{insumoBean.categoria.idCategoria}">
+                        <f:selectItem itemLabel="#{insumoBean.insumo.FK_idCategoria.nombreCategoria}"/>
+                        <f:selectItems value="#{categoriaBean.categorias}" var="cat" itemValue="#{cat.idCategoria}" itemLabel="#{cat.nombreCategoria}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:commandButton value="Actualizar" actionListener="#{insumoBean.updateInsumo()}" update="datosInsumos" onclick="PF('dlg1').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlg1').hide();"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+        <p:dialog id="new" widgetVar="dlg2" showEffect="fade" resizable="false" header="Nuevo Insumo">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="nomins" value="Insumo"/>
+                    <p:inputText id="nomins" value="#{insumoBean.insumo.nombreInsumo}"/>
+                    
+                    <p:outputLabel for="desins" value="Descripcion"/>
+                    <p:inputText id="desins" value="#{insumoBean.insumo.descripcionInsumo}"/>
+                    
+                    <p:outputLabel for="fecrins" value="Fecha de Registro"/>
+                     <p:datePicker id="fecrins" value="#{insumoBean.insumo.fechaRegistro}" pattern="yyyy/MM/dd">
+                        <f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/>
+                    </p:datePicker>
+                    
+                    <p:outputLabel for="preins" value="Precio Insumo"/>
+                    <p:inputText id="preins" value="#{insumoBean.insumo.precioInsumo}"/>
+                    
+                    <p:outputLabel for="canins" value="Stock"/>
+                    <p:inputText id="canins" value="#{insumoBean.insumo.cantidadDisponible}"/>
+                    
+                    <p:outputLabel for="catins" value="Categoria"/>
+                    <p:selectOneMenu id="catins" value="#{insumoBean.categoria.idCategoria}">
+                        <f:selectItem itemLabel="Selecciona una:"/>
+                        <f:selectItems value="#{categoriaBean.categorias}" var="cat" itemValue="#{cat.idCategoria}" itemLabel="#{cat.nombreCategoria}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:commandButton value="Agregar" actionListener="#{insumoBean.addInsumo()}" update="datosInsumos new" onclick="PF('dlg2').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlg2').hide();"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+    </h:body>
+</html>
+

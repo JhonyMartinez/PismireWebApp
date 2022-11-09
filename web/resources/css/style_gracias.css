@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inconsolata&family=Maven+Pro&family=Russo+One&display=swap');
+
+/* 
+font-family: 'Inconsolata', monospace;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Russo One', sans-serif;
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inconsolata', monospace;
+  scroll-behavior: smooth;
+}
+
+/* Inicio */
+.body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  background: #EEEEEE;
+}
+
+/* Barra navegacion superior */
+nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  transition: 0.2s ease;
+  user-select: none;
+  z-index: 2;
+}
+
+nav .logo a {
+  text-decoration: none;
+  font-size: 1.7rem;
+  color: #16161a;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+}
+
+nav .logo a span {
+  font-family: 'Dancing Script', cursive;
+  color: #dba240;
+}
+
+nav .menu .secciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav .menu .secciones a {
+  color: #16161a;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.5s ease;
+  font-weight: bold;
+  background: #dba240;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .menu .secciones span {
+  color: #16161a;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.5s ease;
+  font-weight: bold;
+  background: #dba240;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+nav .menu .secciones a:hover {
+  background: #d3a961;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.pedido-realizado{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.pedido-realizado .info .logo img{
+    width: 10rem;
+}
+.pedido-realizado .info .texto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 45%;
+}
+.pedido-realizado .info .texto h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+}
+.pedido-realizado h1 span{
+    font-family: 'Dancing Script', cursive;
+    color: #dba240;
+}
+.pedido-realizado h4{
+    font-size: 18px;
+    font-weight: normal;
+}
+.pedido-realizado .links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.boton {
+  width: 60%;
+  text-align: center;
+  margin-bottom: 20px;
+  background: #dba240;
+  padding: 15px 35px;
+  color: #16161a;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.boton2{
+    background: #e0c89d;
+}
+
+.boton:hover {
+  background: #eeeeee;
+  box-shadow: 0px 1px 10px #dba240;
+}
+
+.boton2:hover{
+    background: #eeeeee;
+    box-shadow: 0px 1px 10px #e0c89d;
+    
+}
+
+footer {
+  background: #e0c89d;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1000px) {
+    .info{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .pedido-realizado .info .logo img{
+        width: 12rem;
+    }
+    .pedido-realizado .info .texto{
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        align-items: center;
+    }
+    .pedido-realizado h4{
+        width: 60%;
+    }
+    .boton {
+        margin-top: 20px;
+        margin-bottom: 0px;
+      }
+}
+
+@media screen and (max-width: 760px) {
+    .pedido-realizado .info .texto h1{
+        font-size: 2.5rem;
+    }
+    .pedido-realizado h4{
+        font-size: 17px;
+    }
+    .boton{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .pedido-realizado .info .logo img{
+        width: 10rem;
+    }
+    .pedido-realizado h4{
+        width: 80%;
+    }
+    .boton {
+        width: 80%;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+  nav {
+    padding: 25px 20px;
+  }
+
+  nav .logo a {
+    font-size: 1.3rem;
+    margin-right: 15px;
+  }
+
+  nav .menu .secciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  nav .menu .secciones a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  footer p {
+    width: 80%;
+  }
+  .pedido-realizado .info .texto h1{
+    font-size: 2rem;
+ }
+
+  .pedido-realizado .info .logo img{
+    width: 10rem;
+  }
+  .pedido-realizado h4{
+    width: 100%;
+    font-size: 16px;
+  }
+  .boton {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* Pantalla de Carga - Loader */
+.cargando {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.25s, visibility 1s;
+}
+
+.fade {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #dba240;
+  margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scrollbarr */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dba240;
+}

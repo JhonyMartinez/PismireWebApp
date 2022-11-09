@@ -1,0 +1,186 @@
+/*Fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100&family=Fredoka+One&family=Quicksand:wght@300&display=swap');
+/*	
+	font-family: 'Fredoka One', cursive;
+	font-family: 'Fira Sans', sans-serif;
+	font-family: 'Quicksand', sans-serif;
+*/
+body{
+	margin: 0;
+	padding: 0;
+}
+/*Parte 1 - En turno y calificacion*/
+.parte1{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.en_turno{
+	text-align: center;
+	padding: 15px;
+}
+.en_turno h1{
+	margin-bottom: 0px;
+	font-family: 'Quicksand', sans-serif;
+	line-height: 0.5;
+	font-size: 20px;
+}
+.en_turno h2{
+	margin-top: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 30px;
+}
+.tarjetas{
+	display: flex;
+
+}
+.empleado{
+	padding: 10px 20px;
+	text-align: center;
+	border-radius: 15px;
+	margin: 0px 5px;
+	box-shadow: 1px 1px 5px black;
+	border: 2px solid rgba(0, 0, 0, 0.0);
+}
+.empleado img{
+	width: 150px;
+	border-radius: 15px;
+}
+.empleado h3{
+	font-family: 'Fredoka One', cursive;
+}
+.empleado h4{
+	font-family: 'Quicksand', sans-serif;
+	margin: 0px;
+	font-size: 20px;
+}
+.empleado h5{
+	margin: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 25px;
+}
+.empleado p{
+	margin-top: 0px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 20px;
+}
+.empleado:hover{
+	border: 2px solid black;
+	transition: 0.5s;
+}
+.califica{
+	text-align: center;
+	margin: 0px 20px;
+	padding: 20px 50px;
+	border-radius: 15px;
+	box-shadow: 1px 1px 5px black;
+	border: 2px solid rgba(0, 0, 0, 0.0);
+}
+.califica img{
+	width: 180px;
+	border-radius: 15px;
+}
+.califica h2{
+	margin: 0px;
+	padding-bottom: 18px;
+	font-family: 'Fredoka One', cursive;
+}
+.califica h3{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 20px;
+	margin: 0px;
+	padding: 10px 0px;
+}
+.califica p{
+	margin: 0px;
+	font-size: 25px;
+}
+.califica:hover{
+	border: 2px solid black;
+	transition: 0.5s;
+}
+
+/*Parte 2 - Novedades en curso*/
+.parte2{
+	margin-top: 20px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.novedad_curso{
+	display: flex;
+}
+.novedad{
+	display: flex;
+	padding: 30px;
+	margin: 0px 20px;
+	align-items: center;
+	border-radius: 5px;
+	background: #16161a;
+	color: white;
+	text-align: left;
+	box-shadow: 1px 1px 5px black;
+}
+.novedad img{
+	width: 100px;
+	margin-right: 20px;
+	border-radius: 100px;
+}
+.novedad h2{
+	letter-spacing: 1px;
+	margin: 0px;
+	font-family: 'Fredoka One', cursive;
+}
+.novedad h3{
+	margin: 0px;
+	font-family: 'Quicksand', sans-serif;
+}
+.novedad:hover{
+	background: white;
+	color: black;
+	transition: 0.2s;
+}
+/*Parte 3 - Tabla de asistencias*/
+
+.parte3{
+	margin-top: 20px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.asistencia{
+	text-align: center;
+}
+.asistencia h1{
+	margin-bottom: 0px;
+	font-family: 'Quicksand', sans-serif;
+	line-height: 0.5;
+	font-size: 20px;
+}
+.asistencia h2{
+	margin-top: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 30px;
+}
+table, th, td{
+	table-layout: fixed;
+	text-align: center;
+	font-size: 17px;
+	border-collapse: collapse;
+}
+tr, th, td{
+	padding: 30px 15px;
+	border-radius: 15px;
+}
+tr{
+	border: 1px solid black;
+}
+th{
+	font-family: 'Fredoka One', cursive;
+	letter-spacing: 1px;
+}
+td{
+	font-family: 'Quicksand', sans-serif;
+}

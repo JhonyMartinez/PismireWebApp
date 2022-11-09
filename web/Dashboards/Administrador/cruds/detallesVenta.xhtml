@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="datos">
+            <p:dataTable value="#{detalleVentaBean.detallesVenta}" var="dven">
+                <p:column headerText="Id">
+                    <h:outputText value="#{dven.idDetalle}"></h:outputText>
+                </p:column>
+                <p:column headerText="Id Venta">
+                    <h:outputText value="#{dven.FK_idVenta.idVenta}"></h:outputText>
+                </p:column>
+                <p:column headerText="Plato">
+                    <h:outputText value="#{dven.FK_idPlato.nombrePlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Cantidad">
+                    <h:outputText value="#{dven.cantidadPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Total Plato">
+                    <h:outputText value="#{dven.totalPlato}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

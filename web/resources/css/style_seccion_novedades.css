@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inconsolata&family=Maven+Pro&family=Russo+One&display=swap');
+/* 
+font-family: 'Inconsolata', monospace;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Russo One', sans-serif;
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Maven Pro', sans-serif;
+    color: #16161a;
+    font-weight: normal;
+}
+main{
+    padding: 20px 40px;
+}
+.novedades .header{
+    padding: 13px 0px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.novedades .header h1{
+    font-weight: normal;
+    font-size: 26px;
+    font-family: 'Russo One', sans-serif;
+}
+.novedades .header h4{
+    font-weight: bold;
+}
+.novedades .header .boton-new{
+    text-decoration: none;
+    background-color: #dba240;
+    padding: 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.novedades .header .boton-new:hover{
+    color: black;
+    background: #d3a961;
+}
+.nov-usuario{
+    display: flex;
+    width: 100%;
+}
+.nov-usuario img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.nov-usuario .sec-nov-admin, .sec-nov-emp{
+    width: 50%;
+    padding: 0px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 760px;
+    overflow-y: scroll;
+    border-radius: 40px;
+}
+.nov-usuario .novs-admin, .novs-emp{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.nov-usuario .nov-admin-header, .nov-emp-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.nov-usuario .nov-admin-header h2, .nov-emp-header h2{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.nov-usuario .nov-admin-header h3, .nov-emp-header h3{
+    font-size: 16px;
+}
+.nov-usuario .nov{
+    background: #EEEEEE;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.295);
+    border-radius: 15px;
+    width: 48%;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s ease-in;
+    position: relative;
+}
+.nov-usuario .nov:hover{
+    background: white;
+    box-shadow: 0px 0px 15px #e6bf7c;
+}
+.nov-usuario .sec-nov-emp .nov{
+    background: #fff5e2;
+    box-shadow: 0px 0px 15px #e6bf7c;
+}
+.nov-usuario .sec-nov-emp .nov:hover{
+    background: white;
+    box-shadow: 0px 0px 15px #e6bf7c;
+}
+.nov-usuario .nov .nov-header{
+    width: 100%;
+}
+.nov-usuario .nov .nov-header h2{
+    font-weight: bold;
+}
+.nov-usuario .nov .nov-user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.nov-usuario .nov .nov-user .nov-user-text{
+    line-height: 22px;
+}
+.nov-usuario .nov .nov-user .nov-user-text h3{
+    font-size: 24px;
+}
+.nov-usuario .nov .nov-user .nov-user-text h4{
+    font-size: 18px;
+    font-weight: bold;
+}
+.nov-usuario .nov .nov-info{
+    display: flex;
+    flex-direction: column;
+}
+.nov-usuario .nov .nov-info h3{
+    font-weight: bold;
+}
+.nov-usuario .nov .nov-info .nov-info-dates{
+    display: flex;
+    gap: 10px;
+}
+.nov-usuario .nov .nov-info a{
+    position: absolute;
+    bottom: 17px;
+    right: 17px;
+    transform: rotate(260deg);
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.295);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+.nov-usuario .nov .nov-info a:hover{
+    background: #e6bf7c;
+    box-shadow: 0px 0px 10px #e6bf7c;
+}
+.nov-usuario .nov .nov-info a span{
+    font-size: 20px;
+}
+.nov-usuario .sec-nov-emp .nov .nov-info a{
+    background: #e6bf7c;
+    box-shadow: 0px 0px 10px #f0c57b;
+}
+.nov-usuario .sec-nov-emp .nov .nov-info a:hover{
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.295);
+} 
+
+/* Modal Nueva Novedad */
+.info-nueva-nov{
+    display: flex;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;;
+}
+.info-novedad{
+    padding: 20px;
+}
+
+.info-novedad h3, .info-empleados h3 {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dba240;
+    width: fit-content;
+}
+.grupo_campos {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.campo {
+    text-align: left;
+    gap: 10px;
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.campo input {
+    background: none;
+    padding: 0px 10px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    font-size: 16px;
+}
+
+.campo input:focus, textarea:focus {
+    transition: all 0.3s ease;
+    border: 1px solid #d3a961;
+}
+textarea{
+    resize: none;
+    outline: none;
+    padding: 10px;
+    height: 128px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    font-size: 16px;
+}
+.info-empleados{
+    padding: 20px;
+}
+.info-empleados .empleados-seleccionados{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 5px;
+    max-height: 256px;
+    overflow-y: scroll;
+}
+.info-empleados .empleados-seleccionados .empleado{
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.info-empleados .empleados-seleccionados .empleado a{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+.info-empleados .empleados-seleccionados .empleado a span{ 
+    color: #dba240;
+}
+.botones{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.boton {
+    width: 30%;
+    border: none;
+    background: #dba240;
+    padding: 15px 35px;
+    color: #16161a;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.boton.cancel{
+    background: white;
+    border: 1px solid #dba240;
+}
+
+.boton:hover {
+    background: #d3a961;
+}
+
+/* Modal Mas Informacion */
+.more-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    width: 400px;
+}
+.more-info img{
+    width: 170px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.more-info h2{
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dba240;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+.more-info h3{
+    font-size: 18px;
+}
+.more-info-dates{
+    display: flex;
+    gap: 10px;
+}
+.more-info-novedad{
+    text-align: justify;
+}
+
+/*Prime Faces - Nuevo*/
+body .ui-commandlink, body .ui-link{
+    color: black;
+}
+
+.new-novelty ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    text-align: left;
+    border-radius: 5px;
+}
+
+body .new-novelty .ui-inputfield.ui-state-focus{
+    border-color: #dba240;
+    box-shadow: none;
+}
+
+body .new-novelty .ui-inputfield.ui-state-hover{
+    border-color: #dba240;
+}
+
+.new-novelty thead{
+    border: none;
+}
+
+body .ui-widget-overlay{
+    background: #ffffffc5;
+}
+
+/*Select menu*/
+body .ui-selectonemenu{
+    border-color: rgba(0, 0, 0, 0.26); 
+}
+body .ui-selectonemenu.ui-state-hover{
+    border-color: #dba240;
+}
+body .ui-selectonemenu.ui-state-focus{
+    border-color: #dba240;
+    box-shadow: none;
+}
+.ui-selectonemenu label.ui-selectonemenu-label{
+    border: none;
+}
+body .ui-selectonemenu-panel .ui-selectonemenu-items .ui-selectonemenu-item.ui-state-highlight{
+    background: #fff5e2;
+}
+
+/*PrimeFaces Button*/
+button.ui-button {
+    border: none;
+    background: #dba240;
+    padding: 15px 35px;
+    color: #16161a;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+body .ui-button.ui-button-text-only .ui-button-text{
+    padding: 0px;
+}
+.ui-button-text-only .ui-button-text {
+    padding: 0px;
+    font-weight: bold;
+}
+body .ui-button.ui-state-hover{
+    background: #d3a961;
+    border-color: #d3a961;
+    color: black;
+}
+body .ui-button.ui-state-focus{
+    border-color: #dba240;
+    box-shadow: none;
+}
+body .ui-button.ui-state-active{
+    background:#d3a961;
+}
+
+/*Primefaces Boton New*/
+body .ui-commandlink, body .ui-link{
+    color: black;
+}
+
+
+::-webkit-scrollbar{
+    width: 0px;   
+}

@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Pismire - Restaurante El Satélite</title>
+        <link rel="shorcut icon" href="resources/img/Isologo.svg"/>
+        <!-- Enlace a los estilos css -->
+        <link rel="stylesheet" href="resources/css/style.css"/>
+        <!-- Enlace a los iconos de Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- CDN para el Swiperjs -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+        <!-- CDN para los iconos de FontAwesome -->
+        <script src="https://kit.fontawesome.com/ce42f6509a.js" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body>
+    <!-- Loader -->
+    <div class="cargando">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <!-- Barra de Navegacion Superior -->
+    <header id="inicio-link">
+        <nav class="nav">
+            <div class="logo">
+                <img class="img-logo" src="resources/img/Isologo.svg" alt=""/>
+            </div>
+            <div class="menu">
+                <div class="secciones">
+                    <h:form>
+                    <c:if test="#{loginBean.validacion == false}">
+                        <h:commandLink action="Login/login.xhtml?faces-redirect=true">Ingresar</h:commandLink>
+                    </c:if>
+                    <c:if test="#{loginBean.validacion == true}">
+                        <h:commandLink actionListener="#{loginBean.ingresarDashboard()}">Dashboard</h:commandLink>
+                    </c:if>
+                    <a href="#inicio-link">Inicio</a>
+                    <a href="#quien_somos-link">Quiénes Somos</a>
+                    <a href="#menu-link">Menú</a>
+                    <a href="#ubicacion-link">Ubicación</a>
+                    </h:form>
+                </div>
+            </div>
+            <div class="carrito">
+                <h:form>
+                    <h:commandLink action="carrito.xhtml?faces-redirect=true" id="car">
+                        <span class="material-symbols-outlined">shopping_cart <label>#{platoBean.contador}</label></span>
+                    </h:commandLink>
+                </h:form>
+            </div>
+            <div class="carrito-flotante">
+                <h:form>
+                    <h:commandLink action="carrito.xhtml?faces-redirect=true" id="car">
+                        <span class="material-symbols-outlined">shopping_cart <label>#{platoBean.contador}</label></span>
+                    </h:commandLink>
+                </h:form>
+            </div>
+            <div class="menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+        </nav>
+        <!-- Pagina Inicial - HomePage -->
+        <section class="principal"> 
+            <div class="info">
+                <h1>Restaurante El Satélite</h1>
+                <p>--- Solo lo mejor en tu mesa ---</p>
+                <a href="#">VER MENU</a>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </section>
+    </header>
+    <!-- Quienes Somos -->
+    <section class="quien_somos" id="quien_somos-link">
+        <div class="about_info">
+            <div class="about_texto">
+                <div class="texto">
+                <h1><span>Sobre</span> Nosotros</h1>
+                <p>El restaurante el satélite, es un establecimiento el cual lleva funcionando 52 años y tiene tradición desde el año 1969 con recetas familiares las cuales han pasado de generación en generación, el menú esta compuesto por platos típicos de la región.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore illum officia quidem ea! Facilis repellat excepturi assumenda, id corporis rem facere! Mollitia debitis aperiam natus nihil officia minus repellendus alias.</p>
+                </div>
+            </div>
+            <div class="about_imagen">
+                <img src="resources/img/foto_restaurante2.jfif" alt=""/>
+            </div>
+        </div>
+        <div class="mision-vision swiper mySwiper">
+            <div class="mision-vision-slider swiper-wrapper">
+                <div class="misvis swiper-slide">
+                    <h1><span>Nuestra</span> Mision</h1>
+                    <p>Brindar el mejor servicio de comida típica de la región, marcando la diferencia dentro del mercado competitivo, recibiendo a las familias con sus mascotas para ofrecer un ambiente cálido y familiar, teniendo una mejora continua de nuestros productos y servicios, ser un mejor espacio de trabajo que permita la realización personal y el desarrollo de sus colaboradores. Tomando como estrategia el mejoramiento de los estándares de higiene y buen servicio, en un ambiente agradable y familiar a un precio justo.</p>
+                </div>
+                <div class="misvis swiper-slide">
+                    <h1><span>Nuestra</span> Vision</h1>
+                    <p>Ser un lugar reconocido por su originalidad y su trayectoria con calidad humana y principios éticos, que ofrece servicios y productos de excelencia a sus clientes, creando experiencias únicas al paladar de nuestros comensales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Galeria de Fotos -->
+    <section class="galeria">
+        <ul class="galeria_fotos">
+            <li><img class="foto" src="resources/img/Foto1.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto2.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto3.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto4.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto5.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto6.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto7.jfif" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto8.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto9.jpg" alt=""/></li>
+            <li><img class="foto" src="resources/img/Foto10.jpg" alt=""/></li>
+        </ul>
+        <div class="galeria_abierta">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <img src="" alt="" class="foto_grande"/>
+        </div>
+    </section>
+    <section class="menu_dia" id="menu-link">
+        <h1><span>Menu</span> del Dia</h1>
+        <div class="slider_menu swiper">
+            <div class="slider_contenido">
+                <div class="tarjetas_platos swiper-wrapper">
+                    <p:repeat value="#{platoBean.platos}" var="pla">
+                    <div class="tarjeta_plato swiper-slide">
+                        <div class="foto_plato">
+                            <img class="plato" src="resources/img/plato1.jpg" alt=""/>
+                        </div>
+                        <div class="titulo_plato">
+                            <h2>#{pla.nombrePlato}</h2>
+                            <h3>$#{pla.precioPlato}</h3>
+                        </div>
+                        <div class="info_plato">
+                            <p>#{pla.descripcionPlato}</p>
+                        </div>
+                        <a href="#">Ordenar</a>
+                    </div>
+                    </p:repeat>
+                </div>
+            </div>
+            <div class="swiper-button-next boton-menu"></div>
+            <div class="swiper-button-prev boton-menu"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="menu_completo">
+            <div class="parte_menu1">
+                <div class="menu_interior">
+                    <span class="material-symbols-outlined">restaurant</span>
+                    <h2>Menú</h2>
+                    <h3>Completo</h3>
+                </div>
+            </div>
+            <div class="parte_menu2">
+                <p>~~~~~~~~~~~~</p>
+                <p>~~~~~~~~~~~~</p>
+                <h:form>
+                    <h:commandLink action="categorias.xhtml?faces-redirect=true">Ver Menú</h:commandLink>
+                </h:form>
+                <p>~~~~~~~~~~~~</p>
+                <p>~~~~~~~~~~~~</p>
+            </div>
+        </div>
+    </section>
+    <section class="proceso">
+        <div class="paso">
+            <span class="material-symbols-outlined">restaurant_menu</span>
+            <div class="texto-paso">
+                <h2>Ordena del Menu</h2>
+                <p>Selecciona entre multiples categorias y platos, agregala al carrito y realiza tu pedido.</p>
+             </div>
+        </div>
+        <div class="paso">
+            <span class="material-symbols-outlined">cooking</span>
+            <div class="texto-paso">
+                <h2>Preparamos tu Comida</h2>
+                <p>Una vez recibamos tu pedido comenzaremos a preparar tu comida, haremos lo posible por tenerla lista en el menor tiempo posible.</p>
+            </div>
+        </div>
+        <div class="paso">
+            <span class="material-symbols-outlined">two_wheeler</span>
+            <div class="texto-paso">
+                <h2>Enviamos tu Pedido</h2>
+                <p>Cuando tu comida este lista asignaremos tu pedido a un domicliario y la entregaremos en la puerta de tu casa... ¡Disfrutaras de tu comida muy pronto!</p>
+            </div>
+        </div>
+    </section>
+    <section class="ubicacion" id="ubicacion-link">
+        <h1>Ubicación</h1>
+        <p>El restaurante El Satélite se encuentra ubicado en la vereda tilata, sector El Sisga.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7948.160517530795!2d-73.71844400000002!3d5.090724!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7eb7ba4c2e1226b!2sRestaurante%20el%20sat%C3%A9lite!5e0!3m2!1ses-419!2sco!4v1660420673887!5m2!1ses-419!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <footer>
+        <img src="resources/img/LogoPNG.png" alt=""/>
+        <p>Jhony Alexander Martinez Londoño</p>
+        <h3>SENA - ADSI</h3>
+        <h4>Proyecto Formativo</h4>
+        <h5>Pismire © 2022 - Todos los Derechos Reservados</h5>
+    </footer>
+
+    <!-- CDN Swiperjs para el slider - Mision/Vision-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Enlace al Javascript -->
+    <script src="resources/script/script.js"></script>
+    </h:body>
+</html>

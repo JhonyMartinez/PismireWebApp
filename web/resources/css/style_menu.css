@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inconsolata&family=Maven+Pro&family=Russo+One&display=swap');
+/* 
+font-family: 'Inconsolata', monospace;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Russo One', sans-serif;
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
+    scroll-behavior: smooth;
+}
+/* Inicio */
+.body{
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    background: #EEEEEE;
+}
+/* Barra navegacion superior */
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    transition: 0.2s ease;
+    user-select: none;
+}
+nav .logo a{
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: #16161a;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+}
+nav .logo a span{
+    font-family: 'Dancing Script', cursive;
+    color: #dba240;
+}
+nav .menu .secciones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+nav .menu .carrito-flotante{
+    display: none;
+  }
+nav .menu .secciones a.login{
+    color: #16161a;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.5s ease;
+    font-weight: bold;
+    background: #dba240;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+nav .menu .secciones span{
+    color: #16161a;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.5s ease;
+    font-weight: bold;
+    background: #dba240;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+nav .menu .secciones span label{
+    position: absolute;
+    background: #f3daaf;
+    padding: 1px 5px;
+    border-radius: 50px;
+    top: -6px;
+    left: -6px;
+    box-shadow: 0px 1px 10px rgba(94, 93, 93, 0.685);
+    font-size: 14px;
+}
+nav .menu .secciones a.login:hover{
+    background: #d3a961;
+}
+nav .menu .secciones span:hover{
+    background: #d3a961;
+}
+main{
+    width: 100%;
+}
+main .categoria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+main .categoria a{
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+main .categoria span:hover{
+    color: #d3a961;
+    transform: translateX(-20%);
+}
+main .categoria span{
+    font-size: 2rem;
+    color: #dba240;
+    transform: translateX(0%);
+    transition: all 0.3s ease;
+}
+main .categoria h1{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+.catalogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.plato{
+    display: flex;
+    gap: 20px;
+    width: 500px;
+    height: 190px;
+    padding: 15px;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    background: white;
+}
+.plato .imagen_plato{
+    width: 180px;
+    height: 160px;
+    border-radius: 20px;
+}
+.plato .imagen_plato img{
+    width: 180px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.plato .info_plato{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.plato .info_plato a{
+    text-decoration: none;
+    position: absolute;
+    color: white;
+    background: #d3a961;
+    border-radius: 20px;
+    right: 010px;
+    bottom: 10px;
+    display: flex;
+    transition: all 0.3s ease;
+}
+.plato .info_plato a:hover{
+    background: #dba240;
+}
+.plato .info_plato a span{
+    font-size: 2rem;
+    padding: 5px;
+    position: relative;
+}
+.plato .info_plato p{
+    font-size: 15px;
+}
+footer{
+    background: #e0c89d;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+}
+@media screen and (max-width: 1070px) {
+    .catalogo{
+        gap: 15px;
+    }
+    .plato{
+        width: 460px;
+        height: 170px;
+    }
+    .plato .imagen_plato{
+        width: 160px;
+        height: 140px;
+    }
+    .plato .imagen_plato img{
+        width: 160px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav{
+        padding: 25px 20px;
+    }
+    nav .logo a{
+        font-size: 1.3rem;
+        margin-right: 15px;
+    }
+    nav .menu .secciones{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    nav .menu .secciones a.login{
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    nav .menu .secciones span{
+        display: none;
+    }
+    nav .menu .carrito-flotante{
+        display: block;
+        position: fixed;
+        width: 55px;
+        height: 55px;
+        line-height: 60px;
+        bottom: 20px;
+        right: 20px;
+        background: #dba240;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: 0.3s ease;
+        z-index: 100;
+    }
+    nav .menu .carrito-flotante a{
+        text-decoration: none;
+        color: #16161a;
+    }
+    nav .menu .carrito-flotante span{
+        padding: 15px;
+        font-size: 25px;
+    }
+    nav .menu .carrito-flotante label{
+        position: absolute;
+        background: #f3daaf;
+        padding: 2px 6px;
+        border-radius: 50px;
+        top: -2px;
+        right: -2px;
+        box-shadow: 0px 1px 10px rgba(94, 93, 93, 0.685);
+        font-size: 14px;
+        font-weight: bold;
+    }
+    nav .menu .carrito-flotante:hover{
+        background: #d3a961;
+    }
+
+    .plato{
+        width: 400px;
+        height: 160px;
+    }
+    .plato .imagen_plato{
+        width: 140px;
+        height: 120px;
+    }
+    .plato .imagen_plato img{
+        width: 140px;
+        height: 120px;
+    }
+    .plato .info_plato h3{
+        font-size: 18px;
+    }
+    .plato .info_plato p{
+        font-size: 14px;
+    }
+    .plato .info_plato a{
+        right: auto;
+        left: 65px;
+        bottom: 10px;
+    }
+    .plato .info_plato a span{
+        font-size: 1.8rem;
+    }
+}
+@media screen and (max-width: 425px) {
+    main .categoria h1{
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+    .plato{
+        width: 340px;
+        height: 160px;
+    }
+    .plato .imagen_plato{
+        width: 110px;
+        height: 100px;
+    }
+    .plato .imagen_plato img{
+        width: 110px;
+        height: 100px;
+    }
+    .plato .info_plato h3{
+        font-size: 18px;
+    }
+    .plato .info_plato p{
+        font-size: 13px;
+    }
+    .plato .info_plato a{
+        right: auto;
+        left: 50px;
+        bottom: 10px;
+    }
+    .plato .info_plato a span{
+        font-size: 1.8rem;
+    }
+    footer p{
+        width: 80%;
+    }
+}
+
+/* Estilo a PrimeFaces Message growl*/
+body .ui-growl{
+    top: initial;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+body .ui-growl .ui-growl-item-container.ui-growl-warn{
+    background: #f3daaf;
+    color: black;
+    border: none;
+    border-radius: 25px 25px 0px 0px;
+}
+.ui-growl-title{
+    display: none;
+}
+body .ui-growl .ui-growl-item-container.ui-growl-warn .ui-growl-image:before{
+    display: none;
+}
+body .ui-growl .ui-growl-item-container.ui-growl-warn .ui-growl-image{
+    display: none;
+}
+body .ui-growl .ui-growl-item-container .ui-growl-item{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.ui-growl-message{
+    text-align: center;
+    padding: 0;
+}
+
+/* Pantalla de Carga - Loader */
+.cargando{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    transition: opacity 0.25s, visibility 1s;
+}
+.fade{
+    opacity: 0;
+    visibility: hidden;
+}
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #dba240;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Scrollbarr */
+::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-thumb{
+    background: #dba240;
+}

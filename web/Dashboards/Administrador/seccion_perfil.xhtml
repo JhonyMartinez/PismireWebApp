@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Mi Perfil</title>
+        <link rel="stylesheet" href="../../resources/css/style_perfil_empleado.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </h:head>
+    <h:body>
+        <main>
+        <p:growl id="msj" showDetail="true" showSummary="true"/>
+        <div class="perfil">
+            <div class="header">
+                <div class="titulos">
+                    <h1>Mi Perfil</h1>
+                    <h4>¡Hola #{empleadoBean.empleadoLogueado.FK_idPersona.nombrePersona}! Bienvenido(a) de Vuelta</h4>
+                </div>
+                <h:form>
+                    <div class="editar">
+                        <p:commandLink actionListener="#{empleadoBean.loadDataEmpleado(1)}" class="boton-edit" onclick="PF('edit').show()"><span class="material-symbols-outlined">edit</span>Editar Informacion</p:commandLink>
+                    </div>
+                </h:form>
+            </div>
+            <div class="parte1">
+                <div class="foto">
+                    <img src="../../resources/img/Foto10.jpg" alt="#"/>
+                </div>
+                <div class="info">
+                    <div class="nombre">
+                        <h3>#{empleadoBean.empleadoLogueado.FK_idPersona.nombrePersona}</h3>
+                        <h4>#{empleadoBean.empleadoLogueado.FK_idPersona.apellidoPersona}</h4>
+                    </div>
+                    <div class="datos">
+                        <div class="dato">
+                            <h3>Documento:</h3>
+                            <h4>#{empleadoBean.empleadoLogueado.FK_idPersona.cedulaPersona}</h4>
+                        </div>
+                        <div class="dato">
+                            <h3>Telefono:</h3>
+                            <h4>#{empleadoBean.empleadoLogueado.FK_idPersona.telefonoPersona}</h4>
+                        </div>
+                        <div class="dato">
+                            <h3>Direccion:</h3>
+                            <h4>#{empleadoBean.empleadoLogueado.FK_idPersona.direccionPersona}</h4>
+                        </div>
+                        <div class="dato">
+                            <h3>Correo:</h3>
+                            <h4>#{empleadoBean.empleadoLogueado.FK_idPersona.FK_idUsuario.emailUsuario}</h4>
+                        </div>
+                    </div>
+                    <div class="nacimiento">
+                        <div class="card">
+                            <h3><h:outputText value="#{empleadoBean.empleadoLogueado.FK_idPersona.fechaNacimiento}"><f:convertDateTime pattern="dd" type="localDate"/></h:outputText></h3>
+                            <h4><h:outputText value="#{empleadoBean.empleadoLogueado.FK_idPersona.fechaNacimiento}"><f:convertDateTime pattern="MMMM/yyyy" type="localDate"/></h:outputText></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-profesional">
+                    <div class="perfil-pro">
+                        <h3>Perfil Profesional:</h3>
+                        <p>#{empleadoBean.empleadoLogueado.perfilEmpleado}</p>
+                    </div>
+                    <div class="archivos">
+                        <div class="archivo">
+                            <h2>Descargar</h2>
+                            <h3>Hoja de Vida</h3>
+                        </div>
+                        <div class="archivo">
+                            <h2>Descargar</h2>
+                            <h3>Contrato</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-empresa">
+                    <div class="cargo">
+                        <span class="material-symbols-outlined">work</span>
+                        <h3>#{empleadoBean.empleadoLogueado.cargoEmpleado}</h3>
+                    </div>
+                    <div class="salario">
+                        <h2>Salario:</h2>
+                        <h3>#{empleadoBean.empleadoLogueado.salarioEmpleado}</h3>
+                    </div>
+                    <div class="fecha-ing">
+                        <h2>Fecha de Ingreso</h2>
+                        <h3><h:outputText value="#{empleadoBean.empleadoLogueado.ingresoEmpleado}"><f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/></h:outputText></h3>
+                    </div>
+                    <div class="estado">
+                        <div class="icon-estado">
+                            <span class="material-symbols-outlined">
+                                label_important
+                                </span>
+                        </div>
+                        <div class="texto-estado">
+                            <h2>Estado:</h2>
+                        <h3>Fuera de Turno</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parte2">
+                
+            </div>
+        </div>
+            
+        <p:dialog widgetVar="edit" showEffect="fade" hideEffect="fade" draggable="none" resizable="none" modal="true" header="Editar Informacion">
+                <div class="edit-employee">
+                    <h:form class="formulario" id="edit-form">
+                        <div class="info-edit-emp">
+                            <div class="info-personal">
+                                <h3>Informacion Personal</h3>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="nom">Nombre(s)</label>
+                                        <p:inputText id="nom" value="#{empleadoBean.personaEdit.nombrePersona}" required="true" requiredMessage="Debe especificar un Nombre"/>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="ape">Apellido(s)</label>
+                                        <p:inputText id="ape" value="#{empleadoBean.personaEdit.apellidoPersona}" required="true" requiredMessage="Debe especificar un Apellido"/>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="doc">Documento</label>
+                                    <p:inputNumber id="doc" value="#{empleadoBean.personaEdit.cedulaPersona}" decimalPlaces="0" emptyValue="null" required="true" requiredMessage="Debe especificar un Documento de Identificacion"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="tel">Telefono</label>
+                                        <p:inputNumber id="tel" value="#{empleadoBean.personaEdit.telefonoPersona}" decimalPlaces="0" emptyValue="null" required="true" requiredMessage="Debe especificar un Telefono"/>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="nac">Fecha Nacimiento</label>
+                                        <p:datePicker id="nac" value="#{empleadoBean.personaEdit.fechaNacimiento}" pattern="yyyy/MM/dd" monthNavigator="true" yearNavigator="true" required="true" requiredMessage="Debe especificar una Fecha de Nacimiento">
+                                            <f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/>
+                                        </p:datePicker>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="dir">Direccion</label>
+                                    <p:inputText id="dir" value="#{empleadoBean.personaEdit.direccionPersona}" required="true" requiredMessage="Debe especificar una Direccion"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="ema">Correo Electronico</label>
+                                        <p:inputText id="ema" value="#{empleadoBean.usuarioEdit.emailUsuario}" required="true" requiredMessage="Debe especificar un Correo Electronico"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-empresarial">
+                                <h3>Informacion Empresarial</h3>
+                                <div class="campo">
+                                    <label for="per">Perfil Profesional</label>
+                                    <p:inputTextarea id="per" value="#{empleadoBean.empleadoEdit.perfilEmpleado}" required="true" requiredMessage="Debe especificar un Perfil Profesional"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="fecin">Fecha Ingreso</label>
+                                        <p:datePicker id="fecin" value="#{empleadoBean.empleadoEdit.ingresoEmpleado}" pattern="yyyy/MM/dd" monthNavigator="true" yearNavigator="true" required="true" requiredMessage="Debe especificar una Fecha de Ingreso">
+                                            <f:convertDateTime pattern="yyyy/MM/dd" type="localDate"/>
+                                        </p:datePicker>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="carg">Cargo</label>
+                                        <p:inputText id="carg" value="#{empleadoBean.empleadoEdit.cargoEmpleado}" required="true" requiredMessage="Debe especificar un Cargo"/>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <label for="sal">Salario</label>
+                                    <p:inputNumber id="sal" value="#{empleadoBean.empleadoEdit.salarioEmpleado}" decimalPlaces="0" emptyValue="null" required="true" requiredMessage="Debe especificar un Salario"/>
+                                </div>
+                                <div class="grupo_campos">
+                                    <div class="campo">
+                                        <label for="hv">Hoja de Vida</label>
+                                        <p:inputText id="hv" value="#{empleadoBean.empleadoEdit.hvEmpleado}"/>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="con">Contrato</label>
+                                        <p:inputText id="con" value="#{empleadoBean.empleadoEdit.contratoEmpleado}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botones">
+                            <p:commandButton value="Cancelar" onclick="PF('new').hide();" class="boton cancel"/>
+                            <p:commandButton value="Agregar" actionListener="#{empleadoBean.editEmpleado()}" onclick="PF('new').hide();"  update="msj" class="boton"/>
+                        </div>
+                    </h:form>
+                </div>
+            </p:dialog>
+    </main>
+    </h:body>
+</html>
+

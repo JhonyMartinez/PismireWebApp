@@ -1,0 +1,138 @@
+/*Fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100&family=Fredoka+One&family=Quicksand:wght@300&display=swap');
+/*	
+	font-family: 'Fredoka One', cursive;
+	font-family: 'Fira Sans', sans-serif;
+	font-family: 'Quicksand', sans-serif;
+*/
+body{
+	margin: 0;
+	padding: 0;
+}
+/*Parte 1 - En turno y calificacion*/
+.parte1{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 8%;
+}
+.prox_pago{
+	text-align: center;
+	padding: 15px;
+}
+.prox_pago h1{
+	margin-bottom: 0px;
+	font-family: 'Quicksand', sans-serif;
+	line-height: 0.5;
+	font-size: 20px;
+}
+.prox_pago h2{
+	margin-top: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 30px;
+}
+.prox_pago{
+	padding: 50px;
+	text-align: center;
+	border-radius: 15px;
+	margin: 0px 5px;
+	box-shadow: 1px 1px 5px black;
+	border: 2px solid rgba(0, 0, 0, 0.0);
+}
+.prox_pago h3{
+	font-family: 'Fredoka One', cursive;
+}
+.prox_pago h4{
+	font-family: 'Quicksand', sans-serif;
+	margin: 0px;
+	font-size: 20px;
+}
+.prox_pago h5{
+	margin: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 25px;
+}
+.prox_pago:hover{
+	border: 2px solid black;
+	transition: 0.5s;
+}
+.dia{
+	padding: 15px 70px;
+	text-align: center;
+	border-radius: 15px;
+	margin: 0px 5px 20px 5px;
+	box-shadow: 1px 1px 5px black;
+	border: 2px solid rgba(0, 0, 0, 0.0);
+	background: #16161a;
+	color: white;
+}
+.dia h3{
+	margin: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 50px;
+}
+.dia h4{
+	margin: 0px;
+	font-size: 20px;
+	font-family: 'Quicksand', sans-serif;
+}
+.dia:hover{
+	border: 2px solid white;
+	transition: 0.5s;
+}
+.tiempo{
+	padding: 15px 70px;
+	text-align: center;
+	border-radius: 15px;
+	margin: 0px 5px;
+	box-shadow: 1px 1px 5px black;
+	border: 2px solid rgba(0, 0, 0, 0.0);
+	background: #16161a;
+	color: white;
+}
+.tiempo h3{
+	margin: 0px;
+	font-family: 'Fredoka One', cursive;
+	font-size: 20px;
+}
+.tiempo h4{
+	margin: 0px;
+	font-size: 50px;
+	font-family: 'Quicksand', sans-serif;
+}
+.tiempo:hover{
+	border: 2px solid white;
+	transition: 0.5s;
+}
+
+.califica{
+	text-align: center;
+	margin: 0px 20px;
+	padding: 20px 50px;
+	border-radius: 15px;
+	box-shadow: 1px 1px 5px black;
+	border: 2px solid rgba(0, 0, 0, 0.0);
+}
+.califica img{
+	width: 180px;
+	border-radius: 15px;
+}
+.califica h2{
+	margin: 0px;
+	padding-bottom: 18px;
+	font-family: 'Fredoka One', cursive;
+}
+.califica h3{
+	font-family: 'Quicksand', sans-serif;
+	font-size: 20px;
+	margin: 0px;
+	padding: 10px 0px;
+}
+.califica p{
+	margin: 0px;
+	font-size: 25px;
+}
+.califica:hover{
+	border: 2px solid black;
+	transition: 0.5s;
+}

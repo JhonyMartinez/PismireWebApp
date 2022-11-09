@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Menu - Restaurante El Satélite</title>
+        <link rel="shorcut icon" href="resources/img/Isologo.svg"/>
+        <!-- Enlace a los estilos css -->
+        <link rel="stylesheet" href="resources/css/style_pedido.css"/>
+        <!-- Enlace a los iconos de Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- CDN para los iconos de FontAwesome -->
+        <script src="https://kit.fontawesome.com/ce42f6509a.js" crossorigin="anonymous"></script>
+
+    </h:head>
+    <h:body class="body">
+        <f:event listener="#{platoBean.validateOrder()}" type="preRenderView"/>
+        <f:event listener="#{loginBean.validarLoginCart()}" type="preRenderView"/>
+        
+        <!-- Loader -->
+    <div class="cargando">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <!-- Barra de Navegacion Superior -->
+     <nav>
+        <div class="logo">
+            <h:form>
+                <h:commandLink action="index.xhtml?faces-redirect=true">Restaurante <span>El Satélite</span></h:commandLink>
+            </h:form>
+        </div>
+        <div class="menu">
+            <h:form>
+            <div class="secciones">
+                <h:commandLink action="menu.xhtml?faces-redirect=true" id="car">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                </h:commandLink>
+            </div>
+            </h:form>
+        </div>
+     </nav>
+     <main>
+        <p:growl id="msj" showDetail="true" showSummary="true"/>
+        <div class="resumen">
+            <div class="resumen-header">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <h2>Resumen de Compra</h2>
+            </div>
+            <div class="productos">
+                <p:repeat value="#{platoBean.platosCarrito}" var="plato">
+                <article class="producto">
+                    <div class="plato">                      
+                        <h3>#{plato.nombrePlato}</h3>
+                        <span class="cantidad">x#{plato.cantidad}</span>
+                    </div>
+                    <div class="subtotal">
+                        <h4>$#{plato.subTotal}</h4>
+                    </div>
+                </article>
+                </p:repeat>
+            </div>
+            <div class="info-pago">
+                <div class="cantidad-total">
+                    <h3>Productos:</h3>
+                    <h4>#{platoBean.producto}</h4>
+                </div>
+                <div class="total">
+                    <h3>Total a Pagar:</h3>
+                    <h4>$#{platoBean.total}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="finalizar-compra">
+            <div class="finalizar-header">
+                <span class="material-symbols-outlined">sell</span>
+                <h2>Finalizar Compra</h2>
+            </div>
+            <h:form>
+                <div class="grupo_campos">
+                    <div class="campo">
+                        <label for="nom">Nombre(s)</label>
+                        <h:inputText id="nom" value="#{ventaBean.persona.nombrePersona}" disabled="true" required="true"/>
+                    </div>
+                    <div class="campo">
+                        <label for="ape">Apellido(s)</label>
+                        <h:inputText id="ape" value="#{ventaBean.persona.apellidoPersona}" disabled="true" required="true"/>
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="doc">Documento</label>
+                    <h:inputText id="doc" value="#{ventaBean.persona.cedulaPersona}" disabled="true" required="true"/>
+                </div>
+                <div class="campo">
+                    <label for="tel">Telefono</label>
+                    <h:inputText id="tel" value="#{ventaBean.persona.telefonoPersona}" disabled="true" required="true"/>
+                </div>
+                <div class="campo">
+                    <label for="dir">Direccion</label>
+                    <h:inputText id="dir" value="#{ventaBean.persona.direccionPersona}" disabled="false" required="true" requiredMessage="No ha especificado una Direccion"/>
+                </div>
+                <div class="metodos-pago">
+                    <h4>Metodo de Pago</h4>
+                    <div class="botones-metodos">
+                        <p:selectOneButton value="#{ventaBean.metodoPago.idMetodoPago}" required="true" requiredMessage="Debe seleccionar un Metodo de Pago">
+                            <f:selectItems value="#{metodoPagoBean.metodosPago}" var="metodo" itemValue="#{metodo.idMetodoPago}" itemLabel="#{metodo.nombreMetodoPago}"/>
+                        </p:selectOneButton>
+                    </div>
+                </div>
+                <p:commandButton actionListener="#{ventaBean.generateOrder()}" value="Finalizar" class="boton" update="msj">
+                    <p:confirm header="Confirmar Pedido" message="¿Estas seguro de realizar la compra?" icon="pi pi-exclamation-triangle"/>
+                </p:commandButton>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350" class="modal">
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes"/>
+                </p:confirmDialog>
+            </h:form>
+        </div>
+     </main>
+     <footer>
+        <p>Pismire © 2022 - Todos los Derechos Reservados</p>
+     </footer>
+
+
+    <!-- Enlace al Javascript -->
+    <script src="resources/script/script_categorias.js"></script>
+    </h:body>
+</html>
+

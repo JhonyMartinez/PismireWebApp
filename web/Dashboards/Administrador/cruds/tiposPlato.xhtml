@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="datosTplato">
+            <p:commandButton value="Nuevo Tipo de Plato" onclick="PF('dlg2').show()"/>
+            <p:dataTable value="#{tipoPlatoBean.tiposPlato}" var="tplat">
+                <p:column headerText="Id">
+                    <h:outputText value="#{tplat.idTipoPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Tipo de Plato">
+                    <h:outputText value="#{tplat.nombreTipoPlato}"></h:outputText>
+                </p:column>
+                <p:column headerText="Opciones">
+                    <p:commandButton onclick="PF('dlg1').show()" icon="pi pi-pencil" styleClass="edit-button rounded-button ui-button-success"/>
+                    <p:commandButton actionListener="#{tipoPlatoBean.deleteRol(tplat)}" update="datosTplato" class="ui-button-warning rounded-button" icon="pi pi-trash">
+                        <p:confirm type="popup" header="Confirmacion" message="¿Estas seguro de eliminarlo?" icon="pi pi-exclamation-triangle"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+            <p:confirmPopup global="true">
+                <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                <p:commandButton value="Si" type="button" styleClass="ui-confirm-popup-yes" />
+            </p:confirmPopup>
+        </h:form>
+        
+        <p:dialog widgetVar="dlg1" showEffect="fade" resizable="false" header="Editar Tipo de Plato">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="idtplat" value="ID Tipo Plato"/>
+                    <p:inputText id="idtplat" value="#{tipoPlatoBean.tipoPlato.idTipoPlato}"/>
+                    
+                    <p:outputLabel for="nomtplat" value="Tipo de Plato"/>
+                    <p:inputText id="nomtplat" value="#{tipoPlatoBean.tipoPlato.nombreTipoPlato}"/>
+                    
+                    <p:commandButton value="Actualizar" actionListener="#{tipoPlatoBean.updateRol(tipoPlato)}" update="datosTplato" onclick="PF('dlg1').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlg1').hide();"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+        <p:dialog widgetVar="dlg2" showEffect="fade" resizable="false" header="Nuevo Tipo de Plato">
+            <h:form>
+                <p:panelGrid columns="2"> 
+                    <p:outputLabel for="nomtplat" value="Tipo de Plato"/>
+                    <p:inputText id="nomtplat" value="#{tipoPlatoBean.tipoPlato.nombreTipoPlato}"/>
+                    
+                    <p:commandButton value="Agregar" actionListener="#{tipoPlatoBean.updateRol(tipoPlato)}" update="datosTplato" onclick="PF('dlg2').hide();"/>
+                    <p:commandButton value="Cancelar" onclick="PF('dlg2').hide();"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+        
+    </h:body>
+</html>
+

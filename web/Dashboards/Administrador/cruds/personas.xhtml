@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="datosPersonas">
+            <h:commandButton value="Detalle Ventas" action="detallesVenta.xhtml"></h:commandButton>
+            <h:commandButton value="Programacion" action="programacion.xhtml"></h:commandButton>
+            <h:commandButton value="Insumos por Plato" action="insumosPlato.xhtml"></h:commandButton>
+            <h:commandButton value="Insumos por Movimiento" action="insumosMovimiento.xhtml"></h:commandButton>
+            <p:dataTable value="#{personaBean.personas}" var="per" rows="8" paginator="true">
+                <p:column headerText="Id">
+                    <h:outputText value="#{per.idPersona}"></h:outputText>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{per.nombrePersona}"></h:outputText>
+                </p:column>
+                <p:column headerText="Apellido">
+                    <h:outputText value="#{per.apellidoPersona}"></h:outputText>
+                </p:column>
+                <p:column headerText="Cedula">
+                    <h:outputText value="#{per.cedulaPersona}"></h:outputText>
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputText value="#{per.FK_idUsuario.emailUsuario}"></h:outputText>
+                </p:column>
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{per.telefonoPersona}"></h:outputText>
+                </p:column>
+                <p:column headerText="Rol">
+                    <h:outputText value="#{per.FK_idUsuario.FK_idRol.nombreRol}"></h:outputText>
+                </p:column>
+                <p:column headerText="Opciones">
+                    <p:commandButton onclick="PF('dlg1').show()" icon="pi pi-pencil" styleClass="edit-button rounded-button ui-button-success"/>
+                    <p:commandButton actionListener="#{personaBean.deletePersona(per)}" update="datosPersonas" class="ui-button-warning rounded-button" icon="pi pi-trash">
+                        <p:confirm type="popup" header="Confirmacion" message="¿Estas seguro de eliminarlo?" icon="pi pi-exclamation-triangle"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+            <p:confirmPopup global="true">
+                <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                <p:commandButton value="Si" type="button" styleClass="ui-confirm-popup-yes" />
+            </p:confirmPopup>
+        </h:form>
+        
+      
+    </h:body>
+</html>
+

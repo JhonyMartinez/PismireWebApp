@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inconsolata&family=Maven+Pro&display=swap');
+/* 
+font-family: 'Inconsolata', monospace;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
+    scroll-behavior: smooth;
+}
+/* Inicio */
+header{
+    height: 100vh;
+}
+body{
+    background: #EEEEEE;
+}
+/* Barra navegacion superior */
+nav{
+    z-index: 999;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 200px;
+    transition: 0.3s ease;
+    user-select: none;
+}
+nav.estatica .menu .secciones a{
+    color: #16161a;
+    text-shadow: 0px 0px 0px;
+}
+nav.estatica{
+    background: white;
+    position: fixed;
+    top: 0;
+    transition: 0.3s ease;
+    box-shadow: 1px 1px 5px rgba(95, 95, 95, 0.404);
+}
+nav .logo img.logo-estatico{
+    position: absolute;
+    top: 5px;
+}
+nav .logo img{
+    width: 4rem;
+    position: absolute;
+    top: 5px;
+}
+nav .menu{
+    position: relative;
+}
+nav .menu .secciones a{
+    position: relative;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+nav .menu .secciones a:hover{
+    color: #dba240;
+}
+nav .carrito span{
+    color: white;
+    position: absolute;
+    top: 22px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+nav .carrito span label{
+  position: absolute;
+  font-size: 14px;
+}
+nav .carrito-flotante{
+  display: none;
+}
+nav .carrito span:hover{
+  color: #dba240;
+}
+nav.estatica .carrito span{
+    color: #16161a;
+}
+nav.estatica .carrito span:hover{
+  color: #dba240;
+}
+nav .menu-btn{
+  display: none;
+}
+nav .menu-btn span{
+  color: white;
+}
+/* Informacion */
+.principal{
+    text-align: center;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(circle, rgba(36, 36, 35, 0.527) 0%, rgba(0, 0, 0, 0.664) 100%), url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.principal .info h1{
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+}
+.principal .info p{
+    font-size: 1.3rem;
+    color: #dba240;
+    margin-bottom: 70px;
+}
+.principal .info a{
+    background: #dba240;
+    padding: 15px 35px;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.principal .info a:hover{
+    background: #d3a961;
+}
+.principal .social{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    right: 70px;
+}
+.principal .social a i{
+    color: white;
+    font-size: 1.4rem;
+    transition: 0.3s ease;
+}
+.principal .social a i:hover{
+  color: #dba240;
+}
+
+/* Quien Somos */
+.quien_somos{
+    height: 100vh;
+    width: 100%;
+}
+.quien_somos .about_info{
+    display: flex;
+    height: 70vh;
+}
+.quien_somos .about_info .about_texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.quien_somos .about_info .about_texto .texto{
+    width: 70%;
+}
+.quien_somos .about_info .about_texto h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+.quien_somos .about_info .about_texto h1 span{
+    font-family: 'Dancing Script', cursive;
+    color: #dba240;
+}
+.quien_somos .about_info .about_texto p{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.quien_somos .about_info .about_imagen{
+    width: 50%;
+}
+.quien_somos .about_info .about_imagen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.quien_somos .mision-vision{
+    color: rgb(219, 217, 217);
+    background: #1f1f1f;
+    height: 30vh;
+}
+.quien_somos .mision-vision .misvis{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.quien_somos .mision-vision .misvis h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.quien_somos .mision-vision .misvis h1 span{
+    font-family: 'Dancing Script', cursive;
+    color: #dba240;
+}
+.quien_somos .mision-vision .misvis p{
+    font-size: 16px;
+    width: 50%;
+}
+/* Galeria de Fotos */
+.galeria_fotos{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.galeria_fotos li{
+  overflow: hidden;
+  list-style: none;
+  height: 27vh;
+  cursor: pointer;
+}
+.galeria_fotos li img{
+  width: 100%;
+  object-fit: cover;
+  height: 27vh;
+  transition: all 0.5s ease;
+  transform: scale(1.2);
+}
+.galeria_fotos img:hover{
+  transform: scale(1);
+}
+.galeria_abierta{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.534);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.galeria_abierta.abrir_foto{
+  visibility: visible;
+  opacity: 1;
+}
+.galeria_abierta .foto_grande{
+  height: 80%;
+  display: block;
+  object-fit: cover;
+}
+.galeria_abierta i{
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+/* Menu del Dia */
+.menu_dia{
+  margin-top: 2px;
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.menu_dia h1{
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+}
+.menu_dia h1 span{
+  font-family: 'Dancing Script', cursive;
+  color: #dba240;
+}
+.slider_menu{
+  width: 1200px;
+}
+.slider_contenido{
+  margin: 45px;
+  overflow: hidden;
+}
+.tarjeta_plato.swiper-slide{
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 20px;
+  height: 463px;
+}
+.tarjetas_platos .tarjeta_plato .foto_plato{
+  align-self: center;
+}
+.tarjetas_platos .tarjeta_plato .foto_plato img{
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+.tarjetas_platos .tarjeta_plato .titulo_plato{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tarjetas_platos .tarjeta_plato .titulo_plato h2{
+  font-size: 18px;
+}
+.tarjetas_platos .tarjeta_plato .titulo_plato h3{
+  color: #dba240;
+  font-size: 20px;
+}
+.tarjetas_platos .tarjeta_plato .info_plato{
+  height: 100px
+}
+.tarjetas_platos .tarjeta_plato a{
+  color: black;
+  background: #dba240;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  width: 40%;
+}
+.tarjetas_platos .tarjeta_plato a:hover{
+  background: #d3a961;
+  transition: all 0.3s ease;
+}
+.swiper-button-next::after, .swiper-button-prev::after{
+  color: #16161a;
+  font-size: 30px !important;
+}
+.swiper-pagination-bullet{
+  display: none !important;
+}
+
+.menu_completo{
+  display: flex;
+  width: 400px;
+  height: 250px;
+  margin-bottom: 50px;
+  background: white;
+  box-shadow: 1px 1px 7px rgba(102, 101, 101, 0.726);
+}
+.parte_menu1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  text-align: center;
+  line-height: 17px;
+  background: #dba240;
+}
+.parte_menu1 span{
+  text-decoration: none;
+  font-size: 50px;
+}
+.menu_interior{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 230px;
+  border: 2px solid white;
+}
+.parte_menu2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  gap: 20px;
+  background-image: url(../img/patron.jpg);
+  background-size: cover
+}
+.parte_menu2 a{
+  text-decoration: none;
+  color: black;
+  font-size: 18px
+}
+.menu_completo:hover{
+  box-shadow: 2px 2px 10px #dba240; 
+  transition: all 0.3s ease;
+}
+.parte_menu2 a:hover{
+  color: #dba240;
+  transition: all 0.3s ease;
+}
+/* Proceso de Envio */
+.proceso{
+  color: #EEEEEE;
+  display: flex;
+  height: 30vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+  background-image: radial-gradient(circle, rgba(36, 36, 35, 0.685) 0%, rgba(0, 0, 0, 0.795) 100%), url(../img/fondo3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.proceso .paso{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+.proceso .paso h2{
+  font-size: 22px;
+}
+.proceso .paso span{
+  font-size: 70px;
+  color: #dba240;
+}
+/* Ubicacion */
+.ubicacion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.ubicacion h1{
+  margin-top: 45px;
+  margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+}
+.ubicacion iframe{
+  margin-top: 30px;
+  width: 100%;
+  height: 540px;
+}
+/* Footer */
+footer{
+    padding: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+footer img{
+    width: 12rem;
+    margin-bottom: 1rem;
+}
+footer h4{
+    margin-bottom: 2rem;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1500px){
+  .quien_somos .mision-vision .misvis p{
+    font-size: 16px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1300px){
+  /* Proceso */
+  .proceso{
+    gap: 0px;
+    justify-content: space-around;
+  }
+  /* Social */
+  .principal .social{
+    flex-direction: row;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20%;
+  }
+  .quien_somos .mision-vision .misvis p{
+    font-size: 16px;
+    width: 80%;
+  }
+}
+
+/* Responsive 1200px*/
+@media screen and (max-width: 1200px){
+  /* Menu-Platos */
+  .slider_menu{
+    width: 804px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  nav{
+    padding: 25px 70px;
+  }
+  nav .carrito{
+    display: none;
+  }
+  nav .carrito-flotante{
+    display: block;
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background: #dba240;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  nav .carrito-flotante a{
+    text-decoration: none;
+    color: #16161a;
+  }
+  nav .carrito-flotante span{
+    padding: 15px;
+    font-size: 25px;
+  }
+  nav .carrito-flotante label{
+    position: absolute;
+    background: #f3daaf;
+    padding: 2px 6px;
+    border-radius: 50px;
+    top: -2px;
+    right: -2px;
+    box-shadow: 0px 1px 10px rgba(94, 93, 93, 0.685);
+    font-size: 14px;
+    font-weight: bold;
+  }
+  nav .carrito-flotante:hover{
+    background: #d3a961;
+  }
+  .proceso{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+  .proceso .paso{
+    flex-direction: row;
+    gap: 30px;
+    width: 350px;
+    align-items: center;
+  }
+  .proceso .paso .texto-paso{
+    margin: 30px 0;
+  }
+}
+
+/* Responsive 800px */
+@media screen and (max-width: 800px){
+  /* Menu-Platos */
+  .slider_menu{
+    width: 427px;
+  }
+  /* Barra de Navegacion Superior */
+  nav{
+    padding: 10px 30px;
+  }
+  nav .logo img{
+    position: relative;
+    top: 0;
+  }
+  nav .menu-btn{
+    display: block;
+    cursor: pointer;
+  }
+  nav .menu-btn span{
+    color: white;
+    font-size: 2rem;
+  }
+  nav.estatica .menu-btn span{
+    color: black;
+    font-size: 2rem;
+  }
+  nav .menu{
+    position: absolute;
+    top: 75.8px;
+    width: 100%;
+    left: 0;
+    padding-bottom: 80px;
+    background: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  nav .menu .secciones a{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-left: 0px;
+    transition: 0.3s ease;
+    margin: 10px 0px;
+    padding: 15px;
+  }
+  nav.abierto{
+    background: white;
+    top: 0;
+  }
+  nav.abierto .menu-btn span{
+    color: black;
+  }
+  nav .menu.abierto{
+    visibility: visible;
+    opacity: 1;
+  }
+  .ubicacion p{
+    width: 70%;
+  }
+  .quien_somos{
+    height: auto;
+  }
+  .quien_somos .about_info{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 40px 0px;
+  }
+  .quien_somos .about_info .about_texto{
+    width: 100%;
+    text-align: justify;
+  }
+  .quien_somos .about_info .about_texto h1{
+    text-align: center;
+  }
+  .quien_somos .about_info .about_imagen{
+    width: 70%;
+  }
+}
+
+/* Responsive 700px*/
+@media screen and (max-width: 700px){
+  /* Galeria de Fotos */
+  .galeria_abierta .foto_grande{
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+  }
+  .galeria_abierta i{
+    left: calc(50% - 20px);
+  }
+  .principal .info h1{
+    font-size: 3.5rem;
+  }
+  .principal .info p{
+    font-size: 1.1rem;
+  }
+  .quien_somos .mision-vision{
+    height: 40vh;
+  }
+  .quien_somos .mision-vision .misvis{
+    height: 40vh;
+  }
+  .quien_somos .mision-vision .misvis p{
+    font-size: 16px;
+    width: 80%;
+  }
+}
+/* Responsive 500px*/
+@media screen and (max-width: 500px){
+  /* Menu-Platos */
+  .slider_menu{
+    width: 300px;
+    height: 510px;
+    margin-bottom: 30px;
+  }
+  .slider_contenido{
+    margin: 10px;
+  }
+  .tarjeta_plato.swiper-slide{
+    gap: 15px;
+  }
+  .tarjetas_platos .tarjeta_plato .foto_plato img{
+    width: 100%;
+  }
+  .tarjetas_platos .tarjeta_plato p{
+    height: 117px;
+    overflow-y: scroll;
+    margin-bottom: 0px;
+  }
+  .swiper-button-next, .swiper-button-prev{
+    display: none !important;
+  }
+  .swiper-pagination-bullet{
+    display: inline-block !important;
+  }
+  .menu_completo{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 400px;
+    margin-bottom: 50px;
+  }
+  .parte_menu1{
+    height: 200px;
+  }
+  .menu_interior{
+    width: 180px;
+    height: 180px;
+  }
+  .parte_menu2{
+    height: 200px;
+  }
+  .principal .info h1{
+    font-size: 2.6rem;
+  }
+  .principal .info p{
+    font-size: 1.1rem;
+  }
+  .quien_somos .about_info .about_texto p{
+    font-size: 16px;
+  }
+  .quien_somos .about_info .about_texto h1{
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .quien_somos .mision-vision{
+    height: 60vh;
+  }
+  .quien_somos .mision-vision .misvis{
+    height: 60vh;
+  }
+  .proceso{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0px;
+  }
+  .proceso .paso{
+    flex-direction: row;
+    gap: 30px;
+    width: 300px;
+    align-items: center;
+  }
+  .proceso .paso .texto-paso{
+    margin: 30px 0;
+  }
+  .proceso .paso span{
+    font-size: 50px;
+  }
+}
+
+/* Pantalla de Carga - Loader */
+.cargando{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    transition: opacity 0.25s, visibility 1s;
+}
+.fade{
+    opacity: 0;
+    visibility: hidden;
+}
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #dba240;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+/* Scrollbarr */
+::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-thumb{
+    background: #dba240;
+}

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Categorias - Restaurante El Satélite</title>
+        <link rel="shorcut icon" href="resources/img/Isologo.svg"/>
+        <!-- Enlace a los estilos css -->
+        <link rel="stylesheet" href="resources/css/style_categorias.css"/>
+        <!-- Enlace a los iconos de Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- CDN para los iconos de FontAwesome -->
+        <script src="https://kit.fontawesome.com/ce42f6509a.js" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body class="body">
+        <!-- Loader -->
+    <div class="cargando">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <!-- Barra de Navegacion Superior -->
+     <nav>
+        <div class="logo">
+            <h:form>
+                <h:commandLink action="index.xhtml?faces-redirect=true">Restaurante <span>El Satélite</span></h:commandLink>
+            </h:form>
+        </div>
+        <div class="menu">
+            <h:form>
+            <div class="secciones">
+                <h:commandLink action="carrito.xhtml?faces-redirect=true" id="car">
+                    <span class="material-symbols-outlined">shopping_cart <label>#{platoBean.contador}</label></span>
+                </h:commandLink>
+                <c:if test="#{loginBean.validacion == false}">
+                    <h:commandLink action="Login/login.xhtml?faces-redirect=true" class="login">Ingresar</h:commandLink>
+                </c:if>
+                <c:if test="#{loginBean.validacion == true}">
+                    <h:commandLink actionListener="#{loginBean.ingresarDashboard()}" class="login">Dashboard</h:commandLink>
+                </c:if>
+            </div>
+            </h:form>
+            <div class="carrito-flotante">
+                <h:form>
+                    <h:commandLink action="carrito.xhtml?faces-redirect=true">
+                        <span class="material-symbols-outlined">shopping_cart <label>#{platoBean.contador}</label></span>
+                    </h:commandLink>
+                </h:form>
+            </div>
+        </div>
+     </nav>
+     <main>
+        <h1>Menú</h1>
+        <p>Selecciona alguna de nuestras categorias para ver los platos</p>
+        <h:form>
+        <div class="categorias">
+            <div class="ct_principal">
+                    <h:commandLink actionListener="#{platoBean.selectCategory(tipplat.idTipoPlato)}" action="menu.xhtml?faces-redirect=true">
+                        <h2>Todos los Platos</h2>
+                        <img src="resources/img/plato1.jpg" alt="#"/>
+                    </h:commandLink>
+            </div>
+            <div class="ct_slider">
+                <p:repeat value="#{tipoPlatoBean.tiposPlato}" var="tipplat">
+                    <div class="ct_tarjeta">
+                        <h:commandLink actionListener="#{platoBean.selectCategory(tipplat.idTipoPlato)}" action="menu.xhtml?faces-redirect=true">
+                        <h2>#{tipplat.nombreTipoPlato}</h2>
+                        <img src="resources/img/plato2.jpg" alt="#"/>
+                    </h:commandLink>
+                </div>
+                </p:repeat>
+            </div>
+        </div>
+        </h:form>
+     </main>
+     <footer>
+        <p>Pismire © 2022 - Todos los Derechos Reservados</p>
+     </footer>
+
+
+    <!-- Enlace al Javascript -->
+    <script src="resources/script/script_categorias.js"></script>
+    </h:body>
+</html>
+
